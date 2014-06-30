@@ -1,0 +1,28 @@
+.clickable {
+  cursor: pointer;
+}
+
+.hoverable {
+	opacity: 0.3;
+}
+
+.hoverable:hover {
+	opacity: 1;
+}
+
+.engaged {
+  opacity: 0.35;
+}
+
+.navbar-default .navbar-brand{
+	background: none;
+	line-height: 40px;
+}
+
+ul.portfolio-filter li{
+	margin-right: 4px;
+}
+
+ul.portfolio-filter li:last-child{
+	margin-right: 0px;
+}
