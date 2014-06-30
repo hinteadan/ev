@@ -1,4 +1,4 @@
-eye-view
+e-v
 =================
 
-Eye View Web App
+E.V. Web App
