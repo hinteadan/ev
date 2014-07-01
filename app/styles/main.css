@@ -30,3 +30,11 @@ ul.portfolio-filter li:last-child{
 .right-side {
     margin-left: 0px;
 }
+
+.top-10 {
+    margin-top: 10px;
+}
+
+.resize-verical {
+    resize: vertical;
+}
