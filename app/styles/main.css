@@ -26,3 +26,7 @@ ul.portfolio-filter li{
 ul.portfolio-filter li:last-child{
 	margin-right: 0px;
 }
+
+.right-side {
+    margin-left: 0px;
+}
