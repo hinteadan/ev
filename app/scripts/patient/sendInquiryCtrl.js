@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('eye-view-patient')
-    .controller('sendInquiryCtrl', ['$scope', '$upload', '$q', function ($s, $upload, $q) {
+    .controller('sendInquiryCtrl', ['$scope', '$upload', '$q', 'messenger', function ($s, $upload, $q, mess) {
 
         function uploadFiles(files) {
             var deferred = $q.defer(),
