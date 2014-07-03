@@ -3,6 +3,19 @@
 
     var log = this.console.log;
 
+    function ImageInfo(id, url, details) {
+        var self = this;
+        this.id = id || null;
+        this.url = url || null;
+        this.details = details || null;
+        this.isValid = true;
+        this.markInvalid = function () {
+            self.isValid = false;
+            return self;
+        };
+    }
+    ImageInfo.uploadError = new ImageInfo(null, null, 'Error uploading this image').markInvalid();
+
     angular.module('eye-view-patient')
     .controller('sendInquiryCtrl', ['$scope', '$q', 'messenger', function ($s, $q, mess) {
 
@@ -32,9 +45,22 @@
             return $q.all(uploadTasks);
         }
 
+        function mapUploadResultToScopeImages(result) {
+            /// <param name='result' type='Array' elementType='ds.OperationResult' />
+            _.each(result, function (r) {
+                if (!r || !r.isSuccess) {
+                    $s.images.push(ImageInfo.uploadError);
+                    return;
+                }
+                $s.images.push(new ImageInfo(r.data[0].Id, mess.imageUrl(r.data[0].Id)));
+            });
+            log($s.images);
+        }
+
         $s.onFileSelect = function ($files) {
-            uploadFiles($files).then(log, log);
+            uploadFiles($files).then(mapUploadResultToScopeImages, mapUploadResultToScopeImages);
         };
+        $s.images = [];
     }]);
 
 }).call(this, this.angular, this._, this.H.DataStore);

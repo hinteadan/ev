@@ -11,6 +11,9 @@
                 file: file
             });
         };
+        this.imageUrl = function (id) {
+            return ds.blob.UrlFor(id);
+        };
 
     }]);
 
