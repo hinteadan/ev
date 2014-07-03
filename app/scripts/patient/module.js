@@ -6,6 +6,7 @@
 
         $routeProvider
             .when('/', { templateUrl: 'scripts/patient/talk-thread.tmpl.html', controller: 'talkThreadCtrl' })
+			.when('/inquire/:replyingTo', { templateUrl: 'scripts/patient/send-inquiry.tmpl.html', controller: 'sendInquiryCtrl' })
             .when('/inquire', { templateUrl: 'scripts/patient/send-inquiry.tmpl.html', controller: 'sendInquiryCtrl' })
             .otherwise({ redirectTo: '/' });
 
