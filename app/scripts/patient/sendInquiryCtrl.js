@@ -32,7 +32,7 @@
     }
 
     angular.module('eye-view-patient')
-    .controller('sendInquiryCtrl', ['$scope', '$q', 'messenger', function ($s, $q, mess) {
+    .controller('sendInquiryCtrl', ['$scope', '$timeout', '$q', 'messenger', function ($s, $t, $q, mess) {
 
         var message = new Message(null, null, 'hinteadan');
 
@@ -72,10 +72,30 @@
             });
         }
 
+        function submitMessage() {
+        	$s.submit.ting = true;
+        	$t(function () {
+        		delete $s.submit.ting;
+        	}, 2000);
+        }
+
         $s.onFileSelect = function ($files) {
             uploadFiles($files).then(mapUploadResultToMessageImages, mapUploadResultToMessageImages);
         };
         $s.message = message;
+        $s.submit = function () {
+        	if (!$s.submit.confirm) {
+        		$s.submit.confirm = true;
+        		$t(function () {
+        			delete $s.submit.confirm;
+        		}, 5000);
+        		return;
+        	}
+
+        	delete $s.submit.confirm;
+
+        	submitMessage();
+        };
     }]);
 
 }).call(this, this.angular, this._, this.H.DataStore);
