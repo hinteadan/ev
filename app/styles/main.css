@@ -38,3 +38,11 @@ ul.portfolio-filter li:last-child{
 .resize-verical {
     resize: vertical;
 }
+
+.image-thumb {
+    width: 150px;
+    height:150px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center center;
+}

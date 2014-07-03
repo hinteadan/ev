@@ -9,6 +9,9 @@
         this.url = url || null;
         this.details = details || null;
         this.isValid = true;
+        this.cssUrl = function () {
+            return 'url(' + self.url + ')';
+        };
         this.markInvalid = function () {
             self.isValid = false;
             return self;
