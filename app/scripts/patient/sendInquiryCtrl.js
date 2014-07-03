@@ -24,7 +24,7 @@
     function Message(id, previousId, userId, subject) {
         this.id = id || null;
         this.previousId = previousId || null;
-        this.userId = userId || null
+        this.userId = userId || null;
 
         this.subject = subject || null;
         this.content = null;
