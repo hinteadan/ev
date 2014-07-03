@@ -40,8 +40,8 @@ ul.portfolio-filter li:last-child{
 }
 
 .image-thumb {
-    width: 150px;
-    height:150px;
+    width: 100px;
+    height:100px;
     display: inline-block;
     background-size: cover;
     background-position: center center;
