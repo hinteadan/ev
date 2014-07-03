@@ -69,6 +69,7 @@
 
     		mess.send(message)
 				.then(function (entity) {
+					//jshint unused:false
 					$l.path('/');
 				}, function (errReason) {
 					log(errReason);
