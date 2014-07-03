@@ -6,10 +6,10 @@
             </div>
             <div class="box-body bg-gray">
                 <form role="form">
-                    <input class="form-control input-lg" placeholder="Subject" />
+                    <input class="form-control input-lg" placeholder="Subject" ng-model="message.subject" />
                     <div class="form-group">
                         <div>
-                            <div ng-repeat="image in images" class="margin image-thumb" ng-style="{'background-image': image.cssUrl()}"></div>
+                            <div ng-repeat="image in message.images" class="margin image-thumb" ng-style="{'background-image': image.cssUrl()}"></div>
                         </div>
                         <label>
                             Select images...
@@ -19,7 +19,7 @@
                             ...or drag-and-drop them here
                         </div>
                     </div>
-                    <textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5"></textarea>
+                    <textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5" ng-model="message.content"></textarea>
                     <button class="btn btn-primary btn-lg btn-block top-10">Send</button>
                 </form>
             </div>

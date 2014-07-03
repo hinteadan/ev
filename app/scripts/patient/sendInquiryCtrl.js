@@ -3,14 +3,16 @@
 
     var log = this.console.log;
 
-    function ImageInfo(id, url, details) {
+    function ImageInfo(id, urlBase, details) {
         var self = this;
         this.id = id || null;
-        this.url = url || null;
+        this.url = function () {
+            return !urlBase ? null : urlBase + id;
+        };
         this.details = details || null;
         this.isValid = true;
         this.cssUrl = function () {
-            return 'url(' + self.url + ')';
+            return self.url() ? 'url(' + self.url() + ')' : 'none';
         };
         this.markInvalid = function () {
             self.isValid = false;
@@ -19,8 +21,20 @@
     }
     ImageInfo.uploadError = new ImageInfo(null, null, 'Error uploading this image').markInvalid();
 
+    function Message(id, previousId, userId, subject) {
+        this.id = id || null;
+        this.previousId = previousId || null;
+        this.userId = userId || null
+
+        this.subject = subject || null;
+        this.content = null;
+        this.images = [];
+    }
+
     angular.module('eye-view-patient')
     .controller('sendInquiryCtrl', ['$scope', '$q', 'messenger', function ($s, $q, mess) {
+
+        var message = new Message(null, null, 'hinteadan');
 
         function uploadFiles(files) {
             var uploadTasks = [];
@@ -47,22 +61,21 @@
             return $q.all(uploadTasks);
         }
 
-        function mapUploadResultToScopeImages(result) {
+        function mapUploadResultToMessageImages(result) {
             /// <param name='result' type='Array' elementType='ds.OperationResult' />
             _.each(result, function (r) {
                 if (!r || !r.isSuccess) {
-                    $s.images.push(ImageInfo.uploadError);
+                    message.images.push(ImageInfo.uploadError);
                     return;
                 }
-                $s.images.push(new ImageInfo(r.data[0].Id, mess.imageUrl(r.data[0].Id)));
+                message.images.push(new ImageInfo(r.data[0].Id, mess.imageUrl('')));
             });
-            log($s.images);
         }
 
         $s.onFileSelect = function ($files) {
-            uploadFiles($files).then(mapUploadResultToScopeImages, mapUploadResultToScopeImages);
+            uploadFiles($files).then(mapUploadResultToMessageImages, mapUploadResultToMessageImages);
         };
-        $s.images = [];
+        $s.message = message;
     }]);
 
 }).call(this, this.angular, this._, this.H.DataStore);
