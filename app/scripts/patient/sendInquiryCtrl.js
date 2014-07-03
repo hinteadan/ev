@@ -23,8 +23,7 @@
     .controller('sendInquiryCtrl', ['$scope', '$q', 'messenger', function ($s, $q, mess) {
 
         function uploadFiles(files) {
-            var uploadTasks = [],
-                callback = null;
+            var uploadTasks = [];
 
             _.each(files, function (f) {
                 
