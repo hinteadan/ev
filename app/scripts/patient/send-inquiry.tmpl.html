@@ -9,10 +9,12 @@
                     <input class="form-control input-lg" placeholder="Subject" />
                     <div class="form-group">
                         <label>
-                            Image:
+                            Select images...
                             <input type="file" ng-file-select="onFileSelect($files)" multiple />
                         </label>
-                        <div ng-file-drop-available="dropSupported=true" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="file-drop-hover" ng-show="dropSupported"></div>
+                        <div class="callout callout-warning file-drop" ng-file-drop-available="dropSupported=true" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="callout-info" ng-show="dropSupported">
+                            ...or drag-and-drop them here
+                        </div>
                     </div>
                     <textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5"></textarea>
                     <button class="btn btn-primary btn-lg btn-block top-10">Send</button>
