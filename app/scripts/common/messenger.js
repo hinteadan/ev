@@ -1,5 +1,7 @@
-﻿(function (angular, hds) {
+﻿(function (angular, hds, _) {
     'use strict';
+
+    var is = hds.is;
 
     angular.module('eye-view-common')
     .service('messenger', ['$upload', '$q', 'dataStore', function ($upload, $q, ds) {
@@ -30,6 +32,23 @@
         	return deferred.promise;
         };
 
+        this.threadForUser = function (userId) {
+        	var deferred = $q.defer(),
+        		query = hds.queryWithAnd()
+				.where('patientId')(is.EqualTo)(userId);
+
+        	ds.store.Query(query, function(result){
+        		/// <param name='result' type='hds.OperationResult' />
+        		if (!result.isSuccess) {
+        			deferred.reject(result.reason);
+        			return;
+        		}
+        		deferred.resolve(_(result.data).reverse().value());
+        	});
+
+        	return deferred.promise;
+        };
+
     }]);
 
-}).call(this, this.angular, this.H.DataStore);
+}).call(this, this.angular, this.H.DataStore, this._);

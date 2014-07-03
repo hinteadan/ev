@@ -1,12 +1,13 @@
 ﻿(function (angular) {
 	'use strict';
 
-	function Message(inReplyTo, userId, subject) {
+	function Message(inReplyTo, userId, subject, patientId) {
 		var self = this;
 
 		this.inReplyTo = inReplyTo || null;
 		this.isRoot = inReplyTo ? false : true;
-		this.userId = userId || null;
+		this.patientId = patientId || userId || null;
+		this.writerId = userId || null;
 
 		this.createdOn = new Date();
 		this.sentOn = null;
@@ -22,7 +23,8 @@
 
 		this.meta = function () {
 			return {
-				userId: self.userId,
+				writerId: self.writerId,
+				patientId: self.patientId,
 				isRoot: self.isRoot,
 				inReplyTo: self.inReplyTo,
 				createdOn: self.createdOn,

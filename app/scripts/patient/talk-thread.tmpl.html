@@ -1,37 +1,41 @@
 ﻿<div>
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="timeline">
-                <li class="time-label">
-                    <span class="bg-green">
-                        10 Feb. 2014
-                    </span>
-                </li>
-                <li>
-                    <i class="fa fa-envelope bg-orange"></i>
-                    <div class="timeline-item">
-                        <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="timeline">
+				<!--<li class="time-label">
+					<span class="bg-green">
+						10 Feb. 2014
+					</span>
+				</li>-->
+				<li ng-repeat="m in messages">
+					<i class="fa fa-envelope bg-orange"></i>
+					<div class="timeline-item">
+						<span class="time">{{m.Data.sentOn}}</span>
 
-                        <h3 class="timeline-header"><a href="#">Dr. Hintea</a> replied...</h3>
+						<h3 class="timeline-header"><a href="#">{{m.Data.writerId}}</a> wrote...</h3>
 
-                        <div class="timeline-body">
-                            Bloody awesome
-                        </div>
+						<div class="timeline-body">
+							<h4>{{m.Data.subject}}</h4>
+							<p>{{m.Data.content}}</p>
+							<div>
+								<div ng-repeat="image in m.Data.images track by $index" ng-click="openImage(image)" class="margin image-thumb" ng-style="{'background-image': cssUrl(image.id)}"></div>
+							</div>
+						</div>
 
-                        <div class='timeline-footer'>
-                            <a class="btn btn-primary btn-xs">Yeah ...</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <i class="fa fa-clock-o"></i>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 top-10">
-            <button class="btn btn-primary btn-block btn-lg" ng-click="inquire()">Send inquiry</button> 
-        </div>
-    </div>
+						<div class='timeline-footer'>
+							
+						</div>
+					</div>
+				</li>
+				<li>
+					<i class="fa fa-clock-o"></i>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 top-10">
+			<button class="btn btn-primary btn-block btn-lg" ng-click="inquire()">Send inquiry</button>
+		</div>
+	</div>
 </div>
