@@ -313,6 +313,20 @@ module.exports = function (grunt) {
 				files: [
                     { expand: true, flatten: true, src: ['<%= yeoman.dist %>\\*.css'], dest: '<%= yeoman.dist %>' }
 				]
+			},
+			azure: {
+			    options: {
+			        patterns: [
+                        {
+                            match: /["']httpStore.url["'],null/gi,
+                            replacement: '"httpStore.url","http://h-httpstore.azurewebsites.net/"',
+                            expression: true
+                        }
+			        ]
+			    },
+			    files: [
+                    { expand: true, flatten: true, src: ['<%= yeoman.dist %>\\scripts\\*.js'], dest: '<%= yeoman.dist %>\\scripts\\' }
+			    ]
 			}
 		},
 
@@ -395,19 +409,25 @@ module.exports = function (grunt) {
       'karma'
 	]);
 
-	grunt.registerTask('build', [
-      'clean:dist',
-      'useminPrepare',
-      'concurrent:dist',
-      'autoprefixer',
-      'concat',
-      'copy:dist',
-      'cssmin',
-      'uglify',
-      'rev',
-      'usemin',
-      'htmlmin'
-	]);
+	grunt.registerTask('build', function (target) {
+	    grunt.task.run([
+          'clean:dist',
+          'useminPrepare',
+          'concurrent:dist',
+          'autoprefixer',
+          'concat',
+          'copy:dist',
+          'cssmin',
+          'uglify',
+          'rev',
+          'usemin',
+          'htmlmin'
+	    ]);
+
+	    if (target === 'azure') {
+	        return grunt.task.run(['replace:azure']);
+	    }
+	});
 
 	grunt.registerTask('default', [
       'newer:jshint',
