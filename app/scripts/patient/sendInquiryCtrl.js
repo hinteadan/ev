@@ -1,4 +1,4 @@
-﻿(function (angular, _, ds) {
+﻿(function (angular, _, ds, $) {
 	'use strict';
 
 	var log = this.console.log;
@@ -78,9 +78,19 @@
     	}
 
     	$s.onFileSelect = function ($files) {
-    		uploadFiles($files).then(mapUploadResultToMessageImages, mapUploadResultToMessageImages);
+    		$s.uploading = true;
+    		uploadFiles($files).then(function (r) {
+    			delete $s.uploading;
+    			mapUploadResultToMessageImages(r);
+    		}, function (r) {
+    			delete $s.uploading;
+    			mapUploadResultToMessageImages(r);
+    		});
     	};
     	$s.message = message;
+    	$s.selectImagesToUpload = function () {
+    		$('#fileUpload').click();
+    	};
     	$s.submit = function () {
     		if (!$s.submit.confirm) {
     			$s.submit.confirm = true;
@@ -96,4 +106,4 @@
     	};
     }]);
 
-}).call(this, this.angular, this._, this.H.DataStore);
+}).call(this, this.angular, this._, this.H.DataStore, this.$);
