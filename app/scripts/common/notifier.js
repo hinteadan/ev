@@ -9,15 +9,6 @@
 		this.username = username || null;
 	}
 
-	function ConsoleNotifier() {
-
-		this.user = function (user) {
-			/// <param name='user' type='User' />
-			c.info('To ' + user.name + ': You have a new reply from Eye-View.');
-		};
-
-	}
-
 	function MandrillEmailNotifier($http, apiKey) {
 		var baseUrl = 'https://mandrillapp.com/api/1.0/',
 			notificationTemplateName = 'eye-view-notification';
