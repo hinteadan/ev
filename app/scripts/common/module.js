@@ -41,6 +41,6 @@
 	}])
     .controller('uiRouter', ['uiRouter', function (router) {
     	router.route();
-    }]);;
+    }]);
 
 }).call(this, this.angular);
