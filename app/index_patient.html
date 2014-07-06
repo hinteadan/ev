@@ -34,17 +34,18 @@
 				<ul class="nav navbar-nav">
 					<!-- User Account: style can be found in dropdown.less -->
 					<li class="dropdown user user-menu">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<a class="dropdown-toggle clickable" data-toggle="dropdown">
 							<i class="glyphicon glyphicon-user"></i>
-							<span>Hintea Dan <i class="caret"></i></span>
+							<span>{{currentUser.name}} <i class="caret"></i></span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
 							<li class="user-header bg-light-blue">
-								<img src="https://s.gravatar.com/avatar/1ad0af4237a079f02792dde68cc0989e?s=160" class="img-circle" alt="User Image" />
+								<span ng-hide="currentUser.profileImageUrl">No image</span>
+								<img ng-show="currentUser.profileImageUrl" ng-src="{{currentUser.profileImageUrl}}" class="img-circle" alt="User Image" />
 								<p>
-									Hintea Dan Alexandru
-									<small>Member since Nov. 2012</small>
+									{{currentUser.name}}
+									<!--<small>Member since Nov. 2012</small>-->
 								</p>
 							</li>
 							<!-- Menu Body -->
@@ -58,11 +59,11 @@
 							</li>
 							<!-- Menu Footer-->
 							<li class="user-footer">
-								<div class="pull-left">
+								<!--<div class="pull-left">
 									<a href="#" class="btn btn-default btn-flat">Profile</a>
-								</div>
-								<div class="pull-right">
-									<a href="#" class="btn btn-default btn-flat">Sign out</a>
+								</div>-->
+								<div class="pull-right" ng-controller="login">
+									<a class="btn btn-default btn-flat clickable" ng-click="logout()">Sign out</a>
 								</div>
 							</li>
 						</ul>

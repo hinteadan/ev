@@ -9,7 +9,7 @@
 		is = hds.is; 
 
 	angular.module('eye-view-users')
-	.service('authenticator', ['$q', 'usersDataStore', 'User', 'hasher', function ($q, ds, User, hasher) {
+	.service('authenticator', ['$q', '$rootScope', 'usersDataStore', 'User', 'hasher', function ($q, $root, ds, User, hasher) {
 		var currentUser = null;
 
 		this.authenticate = function () {
@@ -27,6 +27,7 @@
 				ds.store.Load(localStorage[storeKey.userId], function (result) {
 					/// <param name='result' type='H.DataStore.OperationResult' />
 					currentUser = User.fromDto(result.data.Data);
+					$root.currentUser = currentUser;
 					deff.resolve(currentUser);
 				});
 			}
@@ -48,10 +49,16 @@
 				currentUser = User.fromDto(result.data[0].Data);
 				localStorage[storeKey.userId] = result.data[0].Id;
 				localStorage[storeKey.loggedOn] = new Date().getTime();
+				$root.currentUser = currentUser;
 				deff.resolve(currentUser);
 			});
 			
 			return deff.promise;
+		};
+		this.logout = function () {
+			localStorage.removeItem(storeKey.loggedOn);
+			localStorage.removeItem(storeKey.userId);
+			$root.currentUser = null;
 		};
 		this.user = currentUser;
 	}]);

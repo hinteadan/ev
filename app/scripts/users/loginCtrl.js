@@ -17,6 +17,10 @@
 				alert(reason);
 			});
 		};
+		$s.logout = function () {
+			auth.logout();
+			$w.location.href = '';
+		};
 	}]);
 
 }).call(this, this.angular);
