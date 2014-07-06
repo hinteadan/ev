@@ -4,7 +4,7 @@
 	var is = hds.is;
 
 	angular.module('eye-view-common')
-    .service('messenger', ['$upload', '$q', 'dataStore', 'notifier', 'NotifiyUser', function ($upload, $q, ds, notify, NotifiyUser) {
+    .service('messenger', ['$upload', '$q', 'dataStore', 'usersDataStore', 'notifier', 'NotifiyUser', function ($upload, $q, ds, uds, notify, NotifiyUser) {
 
     	this.uploadImage = function (file, data) {
     		return $upload.upload({
@@ -47,6 +47,22 @@
     			deferred.resolve(_(result.data).reverse().value());
     		});
 
+    		return deferred.promise;
+    	};
+
+    	this.patients = function () {
+    		var deferred = $q.defer(),
+				query = hds.queryWithAnd().where('role')(is.EqualTo)('Patient');
+    		uds.store.Query(query, function (result) {
+    			/// <param name='result' type='hds.OperationResult' />
+    			if (!result.isSuccess) {
+    				deferred.reject(result.reason);
+    				return;
+    			}
+    			deferred.resolve(_.map(result.data, function (entity) {
+    				return entity.Data;
+    			}));
+    		});
     		return deferred.promise;
     	};
 

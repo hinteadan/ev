@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('eye-view-common', ['angularFileUpload'])
+    angular.module('eye-view-common', ['angularFileUpload', 'eye-view-users'])
 	.service('uiRouter', ['$window', 'authenticator', function ($w, auth) {
 
 		function routeByRole(role) {
