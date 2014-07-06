@@ -1,3 +1,11 @@
 ﻿<div>
-	Login page
+	<form role="form" name="loginForm" ng-submit="submit(loginForm)">
+		<fieldset>
+			<legend>Login User</legend>
+			<input type="text" placeholder="Username" ng-model="username" class="form-control" ng-required="true" />
+			<input type="password" placeholder="Password" ng-model="password" class="form-control" ng-required="true" />
+			
+			<button type="submit" class="btn btn-block btn-lg btn-primary">Login</button>
+		</fieldset>
+	</form>
 </div>
