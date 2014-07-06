@@ -18,6 +18,7 @@
 		this.meta = function () {
 			return {
 				username: self.username,
+				password: self.passwordHash,
 				name: self.name,
 				email: self.email,
 				role: self.role

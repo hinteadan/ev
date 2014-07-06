@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('eye-view-patient', ['ngRoute', 'angularFileUpload', 'eye-view-common'])
+	angular.module('eye-view-patient', ['ngRoute', 'angularFileUpload', 'eye-view-common', 'eye-view-users'])
     .config(['$routeProvider', function ($routeProvider) {
 
         $routeProvider

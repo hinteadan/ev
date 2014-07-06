@@ -38,7 +38,7 @@
 			var deff = $q.defer(),
 				query = new hds.queryWithAnd()
 					.where('username')(is.EqualTo)(username)
-					.where('passwordHash')(is.EqualTo)(hasher.hash(password));
+					.where('password')(is.EqualTo)(hasher.hash(password));
 
 			ds.store.Query(query, function (result) {
 				/// <param name='result' type='H.DataStore.OperationResult' />
