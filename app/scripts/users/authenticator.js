@@ -17,20 +17,19 @@
 
 			if (!localStorage[storeKey.userId]) {
 				deff.reject('Nobody is logged in on this device');
-				return;
 			}
 			else if (new Date().getTime() - Number(localStorage[storeKey.loggedOn]) >= timeoutInMs) {
 				localStorage.removeItem(storeKey.loggedOn);
 				localStorage.removeItem(storeKey.userId);
 				deff.reject('Latest login timed out');
-				return;
 			}
-
-			ds.Load(localStorage[storeKey.userId], function (result) {
-				/// <param name='result' type='H.DataStore.OperationResult' />
-				currentUser = User.fromDto(result.data.Data);
-				deff.resolve(currentUser);
-			});
+			else {
+				ds.store.Load(localStorage[storeKey.userId], function (result) {
+					/// <param name='result' type='H.DataStore.OperationResult' />
+					currentUser = User.fromDto(result.data.Data);
+					deff.resolve(currentUser);
+				});
+			}
 
 			return deff.promise;
 		};
@@ -40,7 +39,7 @@
 					.where('username')(is.EqualTo)(username)
 					.where('passwordHash')(is.EqualTo)(hasher.hash(password));
 
-			ds.Query(query, function (result) {
+			ds.store.Query(query, function (result) {
 				/// <param name='result' type='H.DataStore.OperationResult' />
 				if (!result.isSuccess || result.data.length === 0) {
 					deff.reject('Invalid username and/or password');
