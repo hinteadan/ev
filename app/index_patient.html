@@ -1,110 +1,119 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" ng-app="eye-view-patient">
+<html lang="en" ng-app="eye-view">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Eye View</title>
+	<title>Eye View</title>
 
-    <!-- build:css styles/styles.css -->
-    <link rel="stylesheet" href="styles/gfonts.css">
+	<!-- build:css styles/styles.css -->
+	<link rel="stylesheet" href="styles/gfonts.css">
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link href="bower_components/AdminLTE/css/font-awesome.css" rel="stylesheet" />
-    <link href="bower_components/AdminLTE/css/ionicons.css" rel="stylesheet" />
-    <link href="bower_components/AdminLTE/css/AdminLTE.css" rel="stylesheet" />
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link href="bower_components/AdminLTE/css/font-awesome.css" rel="stylesheet" />
+	<link href="bower_components/AdminLTE/css/ionicons.css" rel="stylesheet" />
+	<link href="bower_components/AdminLTE/css/AdminLTE.css" rel="stylesheet" />
 
-    <link href="styles/main.css" rel="stylesheet" />
-    <!-- endbuild -->
+	<link href="styles/main.css" rel="stylesheet" />
+	<!-- endbuild -->
 </head>
 
 <body class="skin-blue">
 
-    <header class="header">
-        <span class="logo">
-            Eye View
-        </span>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-            <div class="navbar-right">
-                <ul class="nav navbar-nav">
-                    <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="glyphicon glyphicon-user"></i>
-                            <span>Hintea Dan <i class="caret"></i></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header bg-light-blue">
-                                <img src="https://s.gravatar.com/avatar/1ad0af4237a079f02792dde68cc0989e?s=160" class="img-circle" alt="User Image" />
-                                <p>
-                                    Hintea Dan Alexandru
-                                    <small>Member since Nov. 2012</small>
-                                </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="col-xs-6 text-center">
-                                    <a href="#">History</a>
-                                </div>
-                                <div class="col-xs-6 text-center">
-                                    <a href="#">Images</a>
-                                </div>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+	<div ng-controller="uiRouter"></div>
 
-    <div class="right-side">
-        <section class="content-header">
-            <h1>
-                Discussion Thread
-            </h1>
-        </section>
-    </div>
+	<header class="header">
+		<span class="logo">
+			Eye View
+		</span>
+		<!-- Header Navbar: style can be found in header.less -->
+		<nav class="navbar navbar-static-top" role="navigation">
+			<div class="navbar-right">
+				<ul class="nav navbar-nav">
+					<!-- User Account: style can be found in dropdown.less -->
+					<li class="dropdown user user-menu">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="glyphicon glyphicon-user"></i>
+							<span>Hintea Dan <i class="caret"></i></span>
+						</a>
+						<ul class="dropdown-menu">
+							<!-- User image -->
+							<li class="user-header bg-light-blue">
+								<img src="https://s.gravatar.com/avatar/1ad0af4237a079f02792dde68cc0989e?s=160" class="img-circle" alt="User Image" />
+								<p>
+									Hintea Dan Alexandru
+									<small>Member since Nov. 2012</small>
+								</p>
+							</li>
+							<!-- Menu Body -->
+							<li class="user-body">
+								<div class="col-xs-6 text-center">
+									<a href="#">History</a>
+								</div>
+								<div class="col-xs-6 text-center">
+									<a href="#">Images</a>
+								</div>
+							</li>
+							<!-- Menu Footer-->
+							<li class="user-footer">
+								<div class="pull-left">
+									<a href="#" class="btn btn-default btn-flat">Profile</a>
+								</div>
+								<div class="pull-right">
+									<a href="#" class="btn btn-default btn-flat">Sign out</a>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
-    <section class="content" ng-view></section>
+	<div class="right-side">
+		<section class="content-header">
+			<h1>
+				Discussion Thread
+			</h1>
+		</section>
+	</div>
 
-    <!-- build:js scripts/patient.js -->
-    <script src="bower_components/h.dataStore/h.dataStore.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/lodash/dist/lodash.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/ng-file-upload/angular-file-upload-shim.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+	<section class="content" ng-view></section>
 
-    <script src="scripts/common/module.js"></script>
-    <script src="scripts/common/dataStore.js"></script>
-    <script src="scripts/common/messenger.js"></script>
+	<!-- build:js scripts/patient.js -->
+	<script src="bower_components/h.dataStore/h.dataStore.js"></script>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/lodash/dist/lodash.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower_components/ng-file-upload/angular-file-upload-shim.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+
+	<script src="scripts/common/module.js"></script>
+	<script src="scripts/common/dataStore.js"></script>
+	<script src="scripts/common/messenger.js"></script>
 	<script src="scripts/common/notifier.js"></script>
 	<script src="scripts/common/message.js"></script>
 
 	<script src="scripts/users/module.js"></script>
 	<script src="scripts/users/user.js"></script>
+	<script src="scripts/users/createUserCtrl.js"></script>
+	<script src="scripts/users/loginCtrl.js"></script>
+	<script src="scripts/users/hasher.js"></script>
+	<script src="scripts/users/dataStore.js"></script>
+	<script src="scripts/users/authenticator.js"></script>
 
-    <script src="scripts/patient/module.js"></script>
-    <script src="scripts/patient/talkThreadCtrl.js"></script>
-    <script src="scripts/patient/sendInquiryCtrl.js"></script>
+	<script src="scripts/patient/module.js"></script>
+	<script src="scripts/patient/talkThreadCtrl.js"></script>
+	<script src="scripts/patient/sendInquiryCtrl.js"></script>
 
-    <script src="scripts/adminlte_wireup.js"></script>
-    <!-- endbuild -->
+	<script src="scripts/app.js"></script>
+
+	<script src="scripts/adminlte_wireup.js"></script>
+	<!-- endbuild -->
 </body>
 
 </html>

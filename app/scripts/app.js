@@ -1,23 +1,31 @@
 (function (angular) {
     'use strict';
 
-	angular.module('eye-view', ['ngRoute', 'eye-view-users'])
+	angular.module('eye-view', ['ngRoute', 'eye-view-users', 'eye-view-patient'])
 	.config(['$routeProvider', function ($rp) {
 		$rp.when('/createUser', { templateUrl: 'scripts/users/createUser.tmpl.html', controller: 'createUser' });
 		$rp.when('/login', { templateUrl: 'scripts/users/login.tmpl.html', controller: 'login' });
 	}])
-    .service('uiRouter', ['$window', '$location', 'authenticator', function ($w, $l, auth) {
+    .service('uiRouter', ['$window', 'authenticator', function ($w, auth) {
 
     	function routeByRole(role) {
     		switch (role) {
-    			case 'Patient': $w.location.href = 'index_patient.html'; return;
-    			case 'Medic': $w.location.href = 'index_medic.html'; return;
-    			default: throw new Error('Inexistent role'); return;
+    			case 'Patient':
+    				if ($w.location.href.indexOf('index_patient.html') >= 0) {
+    					return;
+    				}
+    				$w.location.href = 'index_patient.html'; return;
+    			case 'Medic':
+    				if ($w.location.href.indexOf('index_medic.html') >= 0) {
+    					return;
+    				}
+    				$w.location.href = 'index_medic.html'; return;
+    			default: throw new Error('Inexistent role');
     		}
     	}
 
     	function routeToLogin() {
-    		$l.path('/login');
+    		$w.location.href = '/#/login';
     	}
 
     	this.route = function () {
@@ -30,7 +38,7 @@
 				function (currentUser) {
 					routeByRole(currentUser.role);
 				},
-				function (reason) {
+				function () {
 					routeToLogin();
 				});
         };

@@ -1,18 +1,17 @@
 ﻿(function (angular) {
 	'use strict';
 
-	var alert = this.alert,
-		log = this.console.log;
+	var alert = this.alert;
 
 	angular.module('eye-view-users')
-	.controller('login', ['$scope', '$w', 'authenticator', function ($s, $w, auth) {
+	.controller('login', ['$scope', '$window', 'authenticator', function ($s, $w, auth) {
 		$s.username = null;
 		$s.password = null;
 		$s.submit = function (form) {
 			if (!form.$valid) {
 				return;
 			}
-			auth.login($s.username, $s.password).then(function (currentUser) {
+			auth.login($s.username, $s.password).then(function () {
 				$w.location.href = '';
 			}, function (reason) {
 				alert(reason);
