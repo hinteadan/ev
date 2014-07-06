@@ -1,0 +1,14 @@
+﻿<div>
+	<form role="form" name="createUserForm" ng-submit="submit(createUserForm)">
+		<fieldset>
+			<legend>Create User</legend>
+			<input type="text" placeholder="Username" ng-model="user.username" class="form-control" ng-required="true" />
+			<input type="text" placeholder="Password" ng-model="passwordPlain" class="form-control" ng-required="true" />
+			<input type="text" placeholder="Full name" ng-model="user.name" class="form-control" ng-required="true" />
+			<input type="text" placeholder="Email Address" ng-model="user.email" class="form-control" ng-required="true" />
+			<select ng-options="v for (k, v) in possibleRoles" ng-model="user.role" class="form-control"></select>
+			<input type="text" placeholder="Avatar URL" ng-model="user.profileImageUrl" class="form-control" />
+			<button type="submit" class="btn btn-block btn-lg btn-primary">Save</button>
+		</fieldset>
+	</form>
+</div>

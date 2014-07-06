@@ -21,7 +21,14 @@
 </head>
 
 <body ng-app="eye-view" ng-controller="uiRouter">
+
+	<div ng-view>
+
+	</div>
+
     <!-- build:js scripts/index.js -->
+	<script src="bower_components/jsSHA/src/sha.js"></script>
+	<script src="bower_components/h.dataStore/h.dataStore.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -29,6 +36,9 @@
 
 	<script src="scripts/users/module.js"></script>
 	<script src="scripts/users/user.js"></script>
+	<script src="scripts/users/createUserCtrl.js"></script>
+	<script src="scripts/users/hasher.js"></script>
+	<script src="scripts/users/dataStore.js"></script>
 
     <script src="scripts/app.js"></script>
     <!-- endbuild -->

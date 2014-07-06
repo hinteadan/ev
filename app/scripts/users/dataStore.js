@@ -3,7 +3,7 @@
 
 	angular.module('eye-view-users')
     .constant('httpStore.url', null)
-    .service('dataStore', ['httpStore.url', function (storeUrl) {
+    .service('usersDataStore', ['httpStore.url', function (storeUrl) {
     	this.store = new ds.Store('eye-view-users', storeUrl);
     }]);
 
