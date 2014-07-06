@@ -26,7 +26,7 @@
     				deferred.reject(result.reason);
     				return;
     			}
-    			notify.user(new NotifiyUser(message.patientId, message.patientId, 'hintea_dan@yahoo.co.uk'));
+    			notify.user(new NotifiyUser(message.patientId, message.patientId, 'dan.hintea@sysgenic.com'));
     			deferred.resolve(result.data);
     		});
 
