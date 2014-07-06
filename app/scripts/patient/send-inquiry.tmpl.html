@@ -5,8 +5,8 @@
                 <h3 class="box-title">Send inquiry</h3>
             </div>
             <div class="box-body bg-gray">
-                <form role="form">
-                    <input class="form-control input-lg" placeholder="Subject" ng-model="message.subject" />
+                <form role="form" name="messageForm" ng-submit="submit(messageForm)">
+                    <input class="form-control input-lg" placeholder="Subject" ng-model="message.subject" ng-required="true" />
                     <div class="form-group">
                         <div>
                             <div ng-repeat="image in message.images track by $index" class="margin image-thumb" ng-style="{'background-image': image.cssUrl()}">
@@ -25,7 +25,7 @@
 						</div>
                     </div>
                     <textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5" ng-model="message.content"></textarea>
-					<button class="btn btn-primary btn-lg btn-block top-10" ng-click="submit()" ng-disabled="submit.ting">
+					<button type="submit" class="btn btn-primary btn-lg btn-block top-10" ng-disabled="submit.ting">
 						<i class="fa fa-cloud-upload"></i>
 						<span ng-hide="submit.confirm || submit.ting">Send</span>
 						<span ng-show="submit.confirm">Press again to confirm message send</span>

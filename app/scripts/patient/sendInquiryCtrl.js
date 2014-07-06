@@ -91,7 +91,10 @@
     	$s.selectImagesToUpload = function () {
     		$('#fileUpload').click();
     	};
-    	$s.submit = function () {
+    	$s.submit = function (form) {
+    		if (!form.$valid) {
+    			return;
+    		}
     		if (!$s.submit.confirm) {
     			$s.submit.confirm = true;
     			$t(function () {
