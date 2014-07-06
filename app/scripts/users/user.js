@@ -24,6 +24,13 @@
 			};
 		};
 	}
+	User.fromDto = function (dto) {
+		var user = new User();
+		for (var property in dto) {
+			user[property] = dto[property];
+		}
+		return user;
+	};
 
 	angular.module('eye-view-users')
 	.value('userRoles', roles)
