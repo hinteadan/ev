@@ -1,5 +1,3 @@
 ﻿<div>
-	<ul>
-		<li ng-repeat="p in patients">{{p.name}}</li>
-	</ul>
+    <div class="callout callout-info clickable" ng-repeat="p in patients" ng-click="viewDiscussionWith(p)"><p>{{p.name}}</p></div>
 </div>

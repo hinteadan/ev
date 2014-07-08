@@ -60,7 +60,7 @@
     				return;
     			}
     			deferred.resolve(_.map(result.data, function (entity) {
-    				return entity.Data;
+    			    return entity.Data;
     			}));
     		});
     		return deferred.promise;
