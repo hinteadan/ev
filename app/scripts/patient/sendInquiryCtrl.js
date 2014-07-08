@@ -22,9 +22,13 @@
 	ImageInfo.uploadError = new ImageInfo(null, null, 'Error uploading this image').markInvalid();
 
 	angular.module('eye-view-patient')
-    .controller('sendInquiryCtrl', ['$scope', '$timeout', '$q', '$location', '$routeParams', 'messenger', 'Message', function ($s, $t, $q, $l, $p, mess, Message) {
+    .controller('sendInquiryCtrl', ['$scope', '$timeout', '$q', '$location', '$routeParams', 'messenger', 'Message', 'authenticator', function ($s, $t, $q, $l, $p, mess, Message, auth) {
 
-    	var message = new Message($p.replyingTo, 'hinteadan');
+        var message = null;
+
+        auth.authenticate().then(function (user) {
+            $s.message = message = new Message($p.replyingTo, user.username);
+        }, log);
 
     	function uploadFiles(files) {
     		var uploadTasks = [];

@@ -4,7 +4,13 @@
 	var log = this.console.log;
 
 	angular.module('eye-view-patient')
-    .controller('talkThreadCtrl', ['$scope', '$location', '$window', 'messenger', function ($s, $loc, $w, mess) {
+    .controller('talkThreadCtrl', ['$scope', '$location', '$window', 'messenger', 'authenticator', function ($s, $loc, $w, mess, auth) {
+
+        auth.authenticate().then(function (user) {
+            mess.threadForUser(user.username).then(function (messages) {
+                $s.messages = messages;
+            }, log);
+        }, log);
 
     	function imageCssUrl(id) {
     		return id ? 'url(' + mess.imageUrl(id) + ')' : 'none';
@@ -18,10 +24,6 @@
     	$s.openImage = function (image) {
     		window.open(mess.imageUrl(image.id));
     	};
-
-    	mess.threadForUser('hinteadan').then(function (messages) {
-    		$s.messages = messages;
-    	}, log);
 
     }]);
 

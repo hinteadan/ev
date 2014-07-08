@@ -60,7 +60,6 @@
 			localStorage.removeItem(storeKey.userId);
 			$root.currentUser = null;
 		};
-		this.user = currentUser;
 	}]);
 
 }).call(this, this.angular, this.localStorage, this.H.DataStore);
