@@ -17,7 +17,7 @@
         $s.messages = [];
         $s.cssUrl = imageCssUrl;
         $s.respond = function () {
-            $loc.path('/respond');
+            $loc.path('/respond/' + $rp.pid);
         };
         $s.openImage = function (image) {
             window.open(mess.imageUrl(image.id));

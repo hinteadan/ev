@@ -7,6 +7,7 @@
     	$routeProvider
             .when('/', { templateUrl: 'scripts/medic/discussionsList.tmpl.html', controller: 'disussionsList' })
             .when('/thread/:pid', { templateUrl: 'scripts/medic/talk-thread.tmpl.html', controller: 'threadCtrl' })
+            .when('/respond/:pid', { templateUrl: 'scripts/medic/respond.tmpl.html', controller: 'respondCtrl' })
             .otherwise({ redirectTo: '/' });
 
     }]);
