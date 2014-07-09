@@ -93,6 +93,9 @@
 
     		submitMessage();
     	};
+    	$s.cancel = function () {
+    		$l.path('/');
+    	};
     }]);
 
 }).call(this, this.angular, this._, this.H.DataStore, this.$);
