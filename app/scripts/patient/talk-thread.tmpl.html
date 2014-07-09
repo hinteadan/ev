@@ -1,6 +1,14 @@
 ﻿<div>
 	<div class="row">
 		<div class="col-md-12">
+			<button class="btn btn-primary btn-block btn-lg" ng-click="inquire()">
+				<span ng-show="messages.length">Reply</span>
+				<span ng-hide="messages.length">Ask for advice</span>
+			</button>
+		</div>
+	</div>
+	<div class="row top-10" ng-show="messages.length">
+		<div class="col-md-12">
 			<ul class="timeline">
 				<!--<li class="time-label">
 					<span class="bg-green">
@@ -23,7 +31,7 @@
 						</div>
 
 						<div class='timeline-footer'>
-							
+
 						</div>
 					</div>
 				</li>
@@ -31,11 +39,6 @@
 					<i class="fa fa-clock-o"></i>
 				</li>
 			</ul>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12 top-10">
-			<button class="btn btn-primary btn-block btn-lg" ng-click="inquire()">Send inquiry</button>
 		</div>
 	</div>
 </div>

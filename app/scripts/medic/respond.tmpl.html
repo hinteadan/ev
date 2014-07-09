@@ -17,8 +17,8 @@
                             Uploading images...
                         </div>
                         <div ng-hide="uploading">
-                            <button class="btn btn-lg btn-info btn-block top-10" ng-click="selectImagesToUpload()">Upload images...</button>
-                            <input id="fileUpload" type="file" ng-file-select="onFileSelect($files)" multiple style="display: none;" />
+                            <button class="btn btn-lg btn-info btn-block top-10" ng-click="selectImagesToUpload()">Upload image...</button>
+                            <input id="fileUpload" type="file" ng-file-select="onFileSelect($files)" style="display: none;" />
                             <div class="callout callout-warning file-drop top-10" ng-file-drop-available="dropSupported=true" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="callout-info" ng-show="dropSupported">
                                 ...or drag-and-drop them here
                             </div>
