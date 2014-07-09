@@ -21,7 +21,7 @@
 		}
 
 		function routeToLogin() {
-			$w.location.href = '/#/login';
+			$w.location.href = '#/login';
 		}
 
 		this.route = function () {
