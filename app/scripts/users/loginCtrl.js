@@ -9,16 +9,20 @@
 			if (!form.$valid) {
 				return;
 			}
+			$s.submit.ting = true;
 			auth.login($s.username, $s.password).then(function () {
-			    notify.success('Logging in...');
-				$w.location.href = '';
+				notify.success('Logging in...');
+				delete $s.submit.ting;
+				$s.submit.ted = true;
+			    $w.location.href = 'index.html';
 			}, function (reason) {
-			    notify.error(reason);
+				notify.error(reason);
+				delete $s.submit.ting;
 			});
 		};
 		$s.logout = function () {
 			auth.logout();
-			$w.location.href = '';
+			$w.location.href = 'index.html';
 		};
 	}]);
 

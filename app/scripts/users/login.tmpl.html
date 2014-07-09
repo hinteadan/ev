@@ -8,7 +8,11 @@
                             <legend>Login User</legend>
                             <input type="text" placeholder="Username" ng-model="username" class="form-control" ng-required="true" />
                             <input type="password" placeholder="Password" ng-model="password" class="form-control top-10" ng-required="true" />
-                            <button type="submit" class="btn btn-block btn-lg btn-primary top-10">Login</button>
+							<button type="submit" class="btn btn-block btn-lg btn-primary top-10" ng-disabled="submit.ting || submit.ted">
+								<span ng-hide="submit.ting || submit.ted">Login</span>
+								<span ng-show="submit.ting"><i class="fa fa-cloud"></i> Checking, please wait...</span>
+								<span ng-show="submit.ted"><i class="fa fa-cog"></i> Logging you in, please wait...</span>
+							</button>
                         </fieldset>
                     </form>
                 </div>
