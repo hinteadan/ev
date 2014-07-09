@@ -1,10 +1,8 @@
 ﻿(function (angular) {
 	'use strict';
 
-	var alert = this.alert;
-
 	angular.module('eye-view-users')
-	.controller('login', ['$scope', '$window', 'authenticator', function ($s, $w, auth) {
+	.controller('login', ['$scope', '$window', 'authenticator', 'uiNotifier', function ($s, $w, auth, notify) {
 		$s.username = null;
 		$s.password = null;
 		$s.submit = function (form) {
@@ -12,9 +10,10 @@
 				return;
 			}
 			auth.login($s.username, $s.password).then(function () {
+			    notify.success('Logging in...');
 				$w.location.href = '';
 			}, function (reason) {
-				alert(reason);
+			    notify.error(reason);
 			});
 		};
 		$s.logout = function () {

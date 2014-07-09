@@ -22,9 +22,7 @@
 
 <body ng-app="eye-view" ng-controller="uiRouter">
 
-	<div ng-view>
-
-	</div>
+	<div ng-view></div>
 
     <!-- build:js scripts/index.js -->
 	<script src="bower_components/jsSHA/src/sha.js"></script>
@@ -34,6 +32,8 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
 	<script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+    <script src="bower_components/notifyjs/dist/notify.js"></script>
+    <script src="bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap.js"></script>
 
 	<script src="scripts/common/module.js"></script>
 	<script src="scripts/common/dataStore.js"></script>
@@ -41,6 +41,7 @@
 	<script src="scripts/common/notifier.js"></script>
 	<script src="scripts/common/message.js"></script>
     <script src="scripts/common/image.js"></script>
+    <script src="scripts/common/uiNotifier.js"></script>
 
 	<script src="scripts/users/module.js"></script>
 	<script src="scripts/users/user.js"></script>

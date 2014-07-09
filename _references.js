@@ -9,3 +9,4 @@
 /// <reference path="app/bower_components/jasmine/lib/jasmine-core/boot/boot.js" />
 /// <reference path="app/scripts/common/localStore.js" />
 /// <reference path="app/bower_components/jsSHA/src/sha.js" />
+/// <reference path="app/bower_components/notifyjs/dist/notify.js" />
