@@ -327,6 +327,20 @@ module.exports = function (grunt) {
 			    files: [
                     { expand: true, flatten: true, src: ['<%= yeoman.dist %>\\scripts\\*.js'], dest: '<%= yeoman.dist %>\\scripts\\' }
 			    ]
+			},
+			sysgenic: {
+			    options: {
+			        patterns: [
+                        {
+                            match: /["']httpStore.url["'],null/gi,
+                            replacement: '"httpStore.url","http://193.231.161.194:6969/"',
+                            expression: true
+                        }
+			        ]
+			    },
+			    files: [
+                    { expand: true, flatten: true, src: ['<%= yeoman.dist %>\\scripts\\*.js'], dest: '<%= yeoman.dist %>\\scripts\\' }
+			    ]
 			}
 		},
 
@@ -424,8 +438,8 @@ module.exports = function (grunt) {
           'htmlmin'
 	    ]);
 
-	    if (target === 'azure') {
-	        return grunt.task.run(['replace:azure']);
+	    if (target) {
+	        return grunt.task.run(['replace:' + target]);
 	    }
 	});
 
