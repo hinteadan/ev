@@ -1,30 +1,30 @@
 ﻿<div class="row">
-    <div class="col-md-12">
-        <div class="box box-primary top-10">
-            <div class="box-header">
-                <h3 class="box-title">Send inquiry</h3>
-            </div>
-            <div class="box-body bg-gray">
-                <form role="form" name="messageForm" ng-submit="submit(messageForm)">
-                    <input class="form-control input-lg" placeholder="Subject" ng-model="message.subject" ng-required="true" />
-                    <div class="form-group">
-                        <div>
-                            <div ng-repeat="image in message.images track by $index" class="margin image-thumb" ng-style="{'background-image': image.cssUrl()}">
+	<div class="col-md-12">
+		<div class="box box-primary top-10">
+			<div class="box-header">
+				<h3 class="box-title">Send inquiry</h3>
+			</div>
+			<div class="box-body bg-gray">
+				<form role="form" name="messageForm" ng-submit="submit(messageForm)">
+					<input class="form-control input-lg" placeholder="Subject" ng-model="message.subject" ng-required="true" />
+					<div class="form-group">
+						<div>
+							<div ng-repeat="image in message.images track by $index" class="margin image-thumb" ng-style="{'background-image': image.cssUrl()}">
 								<span ng-hide="image.isValid">Error uploading image</span>
 							</div>
-                        </div>
+						</div>
 						<div ng-show="uploading" class="callout callout-info top-10">
 							Uploading images...
 						</div>
 						<div ng-hide="uploading">
-							<button class="btn btn-lg btn-info btn-block top-10" ng-click="selectImagesToUpload()">Upload image...</button>
+							<button type="button" class="btn btn-lg btn-info btn-block top-10" ng-click="selectImagesToUpload()">Upload image...</button>
 							<input id="fileUpload" type="file" ng-file-select="onFileSelect($files)" style="display: none;" />
 							<div class="callout callout-warning file-drop top-10" ng-file-drop-available="dropSupported=true" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="callout-info" ng-show="dropSupported">
 								...or drag-and-drop them here
 							</div>
 						</div>
-                    </div>
-                    <textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5" ng-model="message.content"></textarea>
+					</div>
+					<textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5" ng-model="message.content"></textarea>
 					<button type="submit" class="btn btn-primary btn-lg btn-block top-10" ng-disabled="submit.ting">
 						<i class="fa fa-cloud-upload"></i>
 						<span ng-hide="submit.confirm || submit.ting">Send</span>
@@ -32,8 +32,8 @@
 						<span ng-show="submit.ting">Sending message...</span>
 					</button>
 					<button type="button" class="btn btn-warning center-block top-10" ng-click="cancel()">Cancel</button>
-                </form>
-            </div>
-        </div>
-    </div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>

@@ -93,6 +93,9 @@
 
             submitMessage();
         };
+        $s.cancel = function () {
+        	$l.path('/thread/' + $p.pid);
+        };
     }]);
 
 }).call(this, this.angular, this._, this.H.DataStore, this.$);
