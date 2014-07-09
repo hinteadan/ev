@@ -4,12 +4,12 @@
     var log = this.console.log;
 
     angular.module('eye-view-medic')
-    .controller('respondCtrl', ['$scope', '$timeout', '$q', '$location', '$routeParams', 'messenger', 'Message', 'authenticator', 'ImageInfo', function ($s, $t, $q, $l, $p, mess, Message, auth, ImageInfo) {
+    .controller('respondCtrl', ['$scope', '$timeout', '$q', '$location', '$routeParams', 'messenger', 'Message', 'authenticator', 'ImageInfo', 'jsParams', function ($s, $t, $q, $l, $p, mess, Message, auth, ImageInfo, params) {
 
         var message = null;
 
         auth.authenticate().then(function (user) {
-            $s.message = message = new Message($p.replyingTo, user.username, null, $p.pid);
+        	$s.message = message = new Message($p.replyingTo, user.username, params.get('subject'), $p.pid);
         }, log);
 
         function uploadFiles(files) {

@@ -41,6 +41,19 @@
 	}])
     .controller('uiRouter', ['uiRouter', function (router) {
     	router.route();
-    }]);
+    }])
+	.service('jsParams', [function () {
+		var params = {};
+
+		this.set = function (key, value) {
+			params[key] = value;
+		};
+		this.get = function (key) {
+			var v = params[key] || null;
+			delete params[key];
+			return v;
+
+		};
+	}]);
 
 }).call(this, this.angular);
