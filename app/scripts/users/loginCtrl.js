@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('eye-view-users')
-	.controller('login', ['$scope', '$window', 'authenticator', 'uiNotifier', function ($s, $w, auth, notify) {
+	.controller('login', ['$scope', '$window', '$location', 'authenticator', 'uiNotifier', function ($s, $w, $l, auth, notify) {
 		$s.username = null;
 		$s.password = null;
 		$s.submit = function (form) {
@@ -23,6 +23,9 @@
 		$s.logout = function () {
 			auth.logout();
 			$w.location.href = 'index.html';
+		};
+		$s.register = function () {
+		    $l.path('/register');
 		};
 	}]);
 
