@@ -19,7 +19,10 @@
                                 <span ng-show="register.ing"><i class="fa fa-cloud"></i> Registering account, please wait...</span>
                             </button>
 
-                            <button type="button" class="btn btn-warning center-block top-10" ng-click="cancel()">Cancel</button>
+                            <button type="button" class="btn btn-warning center-block top-10" ng-click="cancel()">
+                                <span ng-hide="cancel.confirm">Cancel</span>
+                                <span ng-show="cancel.confirm">Yes, I'm sure</span>
+                            </button>
                         </fieldset>
                     </form>
                 </div>
