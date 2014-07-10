@@ -1,0 +1,5 @@
+Reg. Form 
+	-> Send user mail for confirm 
+		-> Click Email Link (URL?UserEntityId,PasswordHash)
+			-> User validator: Load user entity check password hash, if valid, remove pending flag, show message and option to go to login
+				*If user already valid, show message and option to go to login
