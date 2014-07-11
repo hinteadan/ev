@@ -22,15 +22,15 @@
     "grunt-svgmin": "^0.4.0",
     "grunt-usemin": "^2.3.0",
     "grunt-replace": "^0.7.8",
-    "jshint-stylish": "~0.2.0",
-    "karma": "^0.12.16",
+    "jshint-stylish": "~0.4.0",
+    "karma": "^0.12.17",
     "karma-firefox-launcher": "^0.1.3",
     "karma-jasmine": "^0.1.5",
     "karma-ng-html2js-preprocessor": "^0.1.0",
     "karma-ng-scenario": "^0.1.0",
     "karma-phantomjs-launcher": "^0.1.4",
     "load-grunt-tasks": "~0.6.0",
-    "time-grunt": "^0.3.2"
+    "time-grunt": "^0.4.0"
   },
   "engines": {
     "node": ">=0.10.0"
