@@ -1,4 +1,4 @@
-﻿(function (angular, hds) {
+﻿(function (angular, hds, _) {
 	'use strict';
 
 	var is = hds.is;
@@ -35,7 +35,7 @@
 	};
 
 	angular.module('eye-view-registration')
-    .service('registration', ['$q', '$http', '$window', 'hasher', 'usersDataStore', 'registrationDataStore', function ($q, $http, $w, hasher, uds, rds) {
+    .service('registration', ['$q', '$http', '$window', 'hasher', 'usersDataStore', 'registrationDataStore', 'User', function ($q, $http, $w, hasher, uds, rds, User) {
 
     	function checkIfUsernameIsUnique(username) {
     		var deff = $q.defer(),
@@ -47,7 +47,7 @@
     				deff.reject(result.reason);
     				return;
     			}
-    			deff.resolve(result.data.length === 0 || (result.data.length === 1 && result.data[0].Data === null));
+    			deff.resolve(result.data.length === 0 || (result.data.length > 0 && _.all(result.data, { Data: null })));
     		});
 
     		return deff.promise;
@@ -60,7 +60,7 @@
     	function concreteUserFromPending(pendingUserEntityId, pendingUser) {
     		var topDeff = $q.defer();
 
-    		uds.store.Save(pendingUser.user).then(function (result) {
+    		uds.store.Save(new hds.Entity(pendingUser.user, pendingUser.user.meta())).then(function (result) {
     			/// <param name='result' type='H.DataStore.OperationResult' />
     			if (!result.isSuccess) {
     				topDeff.reject(result.reason);
@@ -148,7 +148,7 @@
     				topDeff.reject('Invalid confirmation URL');
     				return;
     			}
-    			confirmPendingUser(result.data[0].Id, PendingUser.fromDto(result.data[0].Data))
+    			confirmPendingUser(result.data[0].Id, PendingUser.fromDto(result.data[0].Data, User.fromDto))
 				.then(topDeff.resolve, topDeff.reject);
     		});
 
@@ -157,4 +157,4 @@
 
     }]);
 
-}).call(this, this.angular, this.H.DataStore);
+}).call(this, this.angular, this.H.DataStore, this._);
