@@ -35,7 +35,7 @@
 	};
 
 	angular.module('eye-view-registration')
-    .service('registration', ['$q', '$http', '$window', 'hasher', 'usersDataStore', 'registrationDataStore', 'User', function ($q, $http, $w, hasher, uds, rds, User) {
+    .service('registration', ['$q', '$http', '$window', 'hasher', 'usersDataStore', 'registrationDataStore', function ($q, $http, $w, hasher, uds, rds) {
 
     	function checkIfUsernameIsUnique(username) {
     		var deff = $q.defer(),
@@ -47,7 +47,7 @@
     				deff.reject(result.reason);
     				return;
     			}
-    			deff.resolve(result.data.length === 0 || (result.data.length === 1 && result.data[0].Data === null));;
+    			deff.resolve(result.data.length === 0 || (result.data.length === 1 && result.data[0].Data === null));
     		});
 
     		return deff.promise;
