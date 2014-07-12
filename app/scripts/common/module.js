@@ -26,7 +26,9 @@
 
 		this.route = function () {
 
-			if ($w.location.hash === '#/createUser' || $w.location.hash === '#/login') {
+			if ($w.location.hash === '#/createUser' || 
+				$w.location.hash === '#/login' ||
+				$w.location.hash.indexOf('#/registration/confirm') >= 0) {
 				return;
 			}
 
