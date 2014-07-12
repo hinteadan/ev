@@ -1,10 +1,8 @@
 ﻿(function (angular) {
     'use strict';
 
-    var log = this.console.log;
-
     angular.module('eye-view-registration')
-    .controller('registerUser', ['$scope', '$location', '$timeout', 'User', function ($s, $l, $t, User) {
+    .controller('registerUser', ['$scope', '$location', '$timeout', 'User', 'registration', 'hasher', 'uiNotifier', 'notifier', function ($s, $l, $t, User, registration, hasher, uiNotifier, notify) {
 
         var userBeingRegistered = new User();
 
@@ -16,7 +14,14 @@
 
 
         $s.register = function (/*form*/) {
-            log(userBeingRegistered);
+
+        	//validate form
+
+        	userBeingRegistered.passwordHash = hasher.hash($s.pass);
+
+        	registration.queueForConfirmation(userBeingRegistered).then(function (confirmationUrl) {
+        		notify.userRegistration(userBeingRegistered.email, confirmationUrl);
+        	}, uiNotifier.error);
         };
 
         $s.cancel = function () {

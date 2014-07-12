@@ -12,3 +12,5 @@
 /// <reference path="app/bower_components/notifyjs/dist/notify.js" />
 
 /// <reference path="app/scripts/users/user.js" />
+/// <reference path="app/scripts/users/module.js" />
+/// <reference path="app/scripts/users/hasher.js" />

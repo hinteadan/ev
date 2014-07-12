@@ -61,7 +61,12 @@
 			}).then(c.log, c.log);
 		}
 
+		function sendUserRegistrationEmailTo(emailAddress, confirmationUrl) {
+			c.info('Sending ' + confirmationUrl + ' to ' + emailAddress);
+		};
+
 		this.user = sendNotificationMessageTo;
+		this.userRegistration = sendUserRegistrationEmailTo;
 	}
 
 	angular.module('eye-view-common')

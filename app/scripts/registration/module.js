@@ -5,7 +5,8 @@
     .config(['$routeProvider', function ($routeProvider) {
 
         $routeProvider
-            .when('/register', { templateUrl: 'scripts/registration/registrationForm.tmpl.html', controller: 'registerUser' });
+            .when('/register', { templateUrl: 'scripts/registration/registrationForm.tmpl.html', controller: 'registerUser' })
+    		.when('/registration/confirm/:hash', { templateUrl: 'scripts/registration/registrationForm.tmpl.html', controller: 'registerUser' });
 
     }]);
 
