@@ -11,7 +11,10 @@
 
 	function MandrillEmailNotifier($http, apiKey) {
 		var baseUrl = 'https://mandrillapp.com/api/1.0/',
-			notificationTemplateName = 'eye-view-notification';
+			template = {
+				notification: 'eye-view-notification',
+				registration: 'eye-view-registration-confirm'
+			};
 
 		function urlFor(call) {
 			return baseUrl + call;
@@ -21,7 +24,7 @@
 			/// <param name='user' type='User' />
 			$http.post(urlFor('messages/send-template.json'), {
 				'key': apiKey,
-				'template_name': notificationTemplateName,
+				'template_name': template.notification,
 				'template_content': [
 					//{
 					//	'name': 'example name',
@@ -61,8 +64,48 @@
 			}).then(c.log, c.log);
 		}
 
-		function sendUserRegistrationEmailTo(emailAddress, confirmationUrl) {
-			c.info('Sending ' + confirmationUrl + ' to ' + emailAddress);
+		function sendUserRegistrationEmailTo(user, confirmationUrl) {
+			/// <param name='user' type='User' />
+			$http.post(urlFor('messages/send-template.json'), {
+				'key': apiKey,
+				'template_name': template.registration,
+				'template_content': [
+					//{
+					//	'name': 'example name',
+					//	'content': 'example content'
+					//}
+				],
+				'message': {
+					'to': [
+						{
+							'email': user.email,
+							'name': user.name,
+							'type': 'to'
+						}
+					],
+					'merge': true,
+					'global_merge_vars': [
+						{
+							'name': 'CONFIRMATIONURL',
+							'content': confirmationUrl
+						}
+					],
+					'merge_vars': [
+						//{
+						//	'rcpt': 'recipient.email@example.com',
+						//	'vars': [
+						//		{
+						//			'name': 'merge2',
+						//			'content': 'merge2 content'
+						//		}
+						//	]
+						//}
+					],
+					'tags': [
+						'eye-view', 'registration', 'confirmation', user.username, user.name
+					]
+				}
+			}).then(c.log, c.log);
 		}
 
 		this.user = sendNotificationMessageTo;
