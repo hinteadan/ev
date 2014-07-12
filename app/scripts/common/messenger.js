@@ -1,7 +1,8 @@
 ﻿(function (angular, hds, _) {
 	'use strict';
 
-	var is = hds.is;
+	var is = hds.is,
+		medicRole = 'Medic';
 
 	angular.module('eye-view-common')
     .service('messenger', ['$upload', '$q', 'dataStore', 'usersDataStore', 'notifier', 'NotifiyUser', function ($upload, $q, ds, uds, notify, NotifiyUser) {
@@ -26,8 +27,25 @@
     				deferred.reject(result.reason);
     				return;
     			}
-    			notify.user(new NotifiyUser(message.patientId, message.patientId, 'dan.hintea@sysgenic.com'));
-    			deferred.resolve(result.data);
+
+    			var query = hds.queryWithOr().where('role')(is.EqualTo)(medicRole);
+    			if (message.writerId !== message.patientId) {
+    				query = query.where('username')(is.EqualTo)(message.patientId);
+    			}
+
+    			uds.store.Query(query)
+				.then(function (result) {
+					/// <param name='result' type='hds.OperationResult' />
+					if (!result.isSuccess) {
+						return;
+					}
+					var usersToNotify = _.select(result.data, function (e) { return e.Data.username !== message.writerId; }).map(function (entity) {
+						/// <param name='entity' type='hds.Entity' />
+						return new NotifiyUser(entity.Data.username, entity.Data.name, entity.Data.email);
+					});
+					notify.users(usersToNotify);
+					deferred.resolve(result.data);
+				});
     		});
 
     		return deferred.promise;

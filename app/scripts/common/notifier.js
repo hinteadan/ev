@@ -1,4 +1,4 @@
-﻿(function (angular) {
+﻿(function (angular, _) {
 	'use strict';
 
 	var c = this.console;
@@ -22,6 +22,19 @@
 
 		function sendNotificationMessageTo(user) {
 			/// <param name='user' type='User' />
+
+			var to = !angular.isArray(user) ?
+					[{
+						'email': user.email,
+						'name': user.name
+					}] :
+					_.map(user, function (u) {
+						return {
+							'email': u.email,
+							'name': u.name
+						};
+					});
+
 			$http.post(urlFor('messages/send-template.json'), {
 				'key': apiKey,
 				'template_name': template.notification,
@@ -32,13 +45,7 @@
 					//}
 				],
 				'message': {
-					'to': [
-						{
-							'email': user.email,
-							'name': user.name,
-							'type': 'to'
-						}
-					],
+					'to': to,
 					'merge': true,
 					'global_merge_vars': [
 						//{
@@ -58,7 +65,7 @@
 						//}
 					],
 					'tags': [
-						'eye-view', 'notification', user.username, user.name
+						'eye-view', 'notification'
 					]
 				}
 			}).then(c.log, c.log);
@@ -102,13 +109,14 @@
 						//}
 					],
 					'tags': [
-						'eye-view', 'registration', 'confirmation', user.username, user.name
+						'eye-view', 'registration', 'confirmation'
 					]
 				}
 			}).then(c.log, c.log);
 		}
 
 		this.user = sendNotificationMessageTo;
+		this.users = sendNotificationMessageTo;
 		this.userRegistration = sendUserRegistrationEmailTo;
 	}
 
@@ -117,4 +125,4 @@
 	.constant('mandrillApiKey', '-L0AqJmsBCMZo_oBbRc5lg')
 	.service('notifier', ['$http', 'mandrillApiKey', MandrillEmailNotifier]);
 
-}).call(this, this.angular);
+}).call(this, this.angular, this._);
