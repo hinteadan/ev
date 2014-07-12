@@ -2,8 +2,8 @@
 	'use strict';
 
 	angular.module('eye-view-users')
-	.controller('login', ['$scope', '$window', '$location', 'authenticator', 'uiNotifier', function ($s, $w, $l, auth, notify) {
-		$s.username = null;
+	.controller('login', ['$scope', '$window', '$location', 'authenticator', 'uiNotifier', 'jsParams', function ($s, $w, $l, auth, notify, p) {
+		$s.username = p.get('username') || null;
 		$s.password = null;
 		$s.submit = function (form) {
 			if (!form.$valid) {
