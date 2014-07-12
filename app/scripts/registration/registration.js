@@ -41,13 +41,13 @@
     		var deff = $q.defer(),
     			query = hds.queryWithAnd().where('username')(is.EqualTo)(username);
 
-    		uds.store.QueryMeta(query).then(function (result) {
+    		uds.store.Query(query).then(function (result) {
     			/// <param name='result' type='H.DataStore.OperationResult' />
     			if (!result.isSuccess) {
     				deff.reject(result.reason);
     				return;
     			}
-    			deff.resolve(result.data.length === 0);
+    			deff.resolve(result.data.length === 0 || (result.data.length === 1 && result.data[0].Data === null));;
     		});
 
     		return deff.promise;
