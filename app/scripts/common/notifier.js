@@ -63,7 +63,7 @@
 
 		function sendUserRegistrationEmailTo(emailAddress, confirmationUrl) {
 			c.info('Sending ' + confirmationUrl + ' to ' + emailAddress);
-		};
+		}
 
 		this.user = sendNotificationMessageTo;
 		this.userRegistration = sendUserRegistrationEmailTo;

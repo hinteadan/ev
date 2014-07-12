@@ -1,8 +1,7 @@
 ﻿(function (angular, hds) {
 	'use strict';
 
-	var log = this.console.log,
-		is = hds.is;
+	var is = hds.is;
 
 	function PendingUser(user, hash) {
 		var self = this;
