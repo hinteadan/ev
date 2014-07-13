@@ -5,7 +5,7 @@
 		medicRole = 'Medic';
 
 	angular.module('eye-view-common')
-    .service('messenger', ['$upload', '$q', 'dataStore', 'usersDataStore', 'notifier', 'NotifiyUser', function ($upload, $q, ds, uds, notify, NotifiyUser) {
+    .service('messenger', ['$upload', '$q', 'dataStore', 'usersDataStore', 'notifier', 'NotifiyUser', 'Message', function ($upload, $q, ds, uds, notify, NotifiyUser, Message) {
 
     	this.uploadImage = function (file, data) {
     		return $upload.upload({
@@ -62,7 +62,10 @@
     				deferred.reject(result.reason);
     				return;
     			}
-    			deferred.resolve(_(result.data).reverse().value());
+    			deferred.resolve(_(result.data).reverse().map(function (entity) {
+    				entity.Data = Message.fromDto(entity.Data);
+    				return entity;
+    			}).value());
     		});
 
     		return deferred.promise;

@@ -30,6 +30,7 @@
         $s.respond = function () {
         	if ($s.messages.length) {
         		params.set('subject', generateSubject($s.messages[0].Data.subject));
+        		params.set('replyingTo', $s.messages[0].Id);
         	}
             $loc.path('/respond/' + $rp.pid);
         };

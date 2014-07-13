@@ -9,7 +9,8 @@
         var message = null;
 
         auth.authenticate().then(function (user) {
-        	$s.message = message = new Message($p.replyingTo, user.username, params.get('subject'), $p.pid);
+        	$s.message = message = new Message(params.get('replyingTo'), user.username, params.get('subject'), $p.pid)
+				.set('writerName', user.name);
         }, log);
 
         function uploadFiles(files) {

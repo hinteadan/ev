@@ -18,11 +18,11 @@
 					</span>
 				</li>-->
 				<li ng-repeat="m in messages">
-					<i class="fa fa-envelope bg-orange"></i>
+					<i class="fa {{m.Data.css()}}"></i>
 					<div class="timeline-item">
 						<span class="time">{{m.Data.sentOn}}</span>
 
-						<h3 class="timeline-header"><a href="#">{{m.Data.writerId}}</a> wrote...</h3>
+						<h3 class="timeline-header"><a href="#">{{m.Data.writerName || m.Data.writerId}}</a> wrote...</h3>
 
 						<div class="timeline-body">
 							<h4>{{m.Data.subject}}</h4>
