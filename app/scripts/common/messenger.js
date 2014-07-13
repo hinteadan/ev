@@ -43,7 +43,7 @@
 						/// <param name='entity' type='hds.Entity' />
 						return new NotifiyUser(entity.Data.username, entity.Data.name, entity.Data.email);
 					});
-					notify.users(usersToNotify);
+					notify.users(usersToNotify, message);
 					deferred.resolve(result.data);
 				});
     		});

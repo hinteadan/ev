@@ -20,7 +20,7 @@
 			return baseUrl + call;
 		}
 
-		function sendNotificationMessageTo(user) {
+		function sendNotificationMessageTo(user, message) {
 			/// <param name='user' type='User' />
 
 			var to = !angular.isArray(user) ?
@@ -48,10 +48,22 @@
 					'to': to,
 					'merge': true,
 					'global_merge_vars': [
-						//{
-						//	'name': 'merge1',
-						//	'content': 'merge1 content'
-						//}
+						{
+							'name': 'writtenBy',
+							'content': message.writerName || message.writerId
+						},
+						{
+							'name': 'subject',
+							'content': message.subject
+						},
+						{
+							'name': 'content',
+							'content': message.content
+						},
+						{
+							'name': 'replyUrl',
+							'content': '[N/A]'
+						}
 					],
 					'merge_vars': [
 						//{
