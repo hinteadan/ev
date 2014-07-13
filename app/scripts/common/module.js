@@ -1,7 +1,11 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('eye-view-common', ['angularFileUpload', 'eye-view-users'])
+	angular.module('eye-view-common', ['angularFileUpload', 'eye-view-users'])
+	.config(['$routeProvider', function ($rp) {
+		$rp.when('/createUser', { templateUrl: 'scripts/users/createUser.tmpl.html', controller: 'createUser' });
+		$rp.when('/login', { templateUrl: 'scripts/users/login.tmpl.html', controller: 'login' });
+	}])
 	.service('uiRouter', ['$window', 'authenticator', function ($w, auth) {
 
 		function routeByRole(role) {
