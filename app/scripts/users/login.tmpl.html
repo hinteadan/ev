@@ -10,11 +10,11 @@
 							<input type="password" placeholder="{{ 'password' | translate }}" ng-model="password" class="form-control top-10" ng-required="true" />
 							<button type="submit" class="btn btn-block btn-lg btn-primary top-10" ng-disabled="submit.ting || submit.ted">
 								<span ng-hide="submit.ting || submit.ted" translate="login">Login</span>
-								<span ng-show="submit.ting"><i class="fa fa-cloud"></i> Checking, please wait...</span>
-								<span ng-show="submit.ted"><i class="fa fa-cog"></i> Logging you in, please wait...</span>
+								<span ng-show="submit.ting"><i class="fa fa-cloud"></i> {{ 'checking' | translate }}. {{ 'wait' | translate }}</span>
+								<span ng-show="submit.ted"><i class="fa fa-cog"></i> {{ 'authenticating' | translate }}. {{ 'wait' | translate }}</span>
 							</button>
 							<button type="button" class="btn btn-default btn-block wrap top-10" ng-click="register()">
-								<i class="fa fa-users"></i> New around here? Register a new user account.
+								<i class="fa fa-users"></i> {{ 'register' | translate}}
 							</button>
                         </fieldset>
                     </form>                    

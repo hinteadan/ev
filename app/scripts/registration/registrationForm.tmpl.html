@@ -5,34 +5,34 @@
 				<div class="box-body">
 					<form role="form" name="registrationForm" ng-submit="register(registrationForm)" ng-hide="register.ed">
 						<fieldset>
-							<legend><i class="fa fa-users"></i> Register a new user account</legend>
+							<legend><i class="fa fa-users"></i>{{'register-new-user'|translate}}</legend>
 
-							<input type="text" placeholder="Full Name" ng-model="user.name" class="form-control" ng-required="true" />
+							<input type="text" placeholder="{{'full-name'|translate}}" ng-model="user.name" class="form-control" ng-required="true" />
 
-							<input type="text" placeholder="Username" ng-model="user.username" class="form-control top-10" ng-required="true" />
+							<input type="text" placeholder="{{'username'|translate}}" ng-model="user.username" class="form-control top-10" ng-required="true" />
 
-							<input type="password" placeholder="Password" ng-model="pass" class="form-control top-10" ng-required="true" />
-							<input type="password" placeholder="Password Confirmation" ng-model="passConfirm" class="form-control top-10" ng-required="true" />
+							<input type="password" placeholder="{{'password'|translate}}" ng-model="pass" class="form-control top-10" ng-required="true" />
+							<input type="password" placeholder="{{'password-confirm'|translate}}" ng-model="passConfirm" class="form-control top-10" ng-required="true" />
 
-							<input type="email" placeholder="E-Mail Address" ng-model="user.email" class="form-control top-10" ng-required="true" />
+							<input type="email" placeholder="{{'email'|translate}}" ng-model="user.email" class="form-control top-10" ng-required="true" />
 
 							<button type="submit" class="btn btn-block btn-lg btn-primary top-10" ng-disabled="register.ing">
-								<span ng-hide="register.ing">Register account</span>
-								<span ng-show="register.ing"><i class="fa fa-cloud"></i> Registering account, please wait...</span>
+								<span ng-hide="register.ing" translate="register-user"></span>
+								<span ng-show="register.ing"><i class="fa fa-cloud"></i> {{ 'registering' | translate }}, {{ 'wait' | translate }}</span>
 							</button>
 
 							<button type="button" class="btn btn-warning center-block top-10" ng-click="cancel()">
-								<span ng-hide="cancel.confirm">Cancel</span>
-								<span ng-show="cancel.confirm">Yes, I'm sure</span>
+								<span ng-hide="cancel.confirm" translate="cancel"></span>
+								<span ng-show="cancel.confirm" translate="yes-sure"></span>
 							</button>
 						</fieldset>
 					</form>
 					<div class="clearfix" ng-show="register.ed">
 						<div class="alert alert-success alert-dismissable top-10">
 							<i class="fa fa-check"></i>
-							<h4><b>Almost done!</b></h4>
-							<p class="top-10">A confirmation e-mail was sent to the specified address.</p>
-							<p>Please check your inbox and validate your new Eye View account by following the confirmation link inside the message.</p>
+							<h4><b translate="almost-done"></b></h4>
+							<p class="top-10" translate="confirmation-mail-sent"></p>
+							<p translate="check-validation-email"></p>
 						</div>
 						<button class="btn btn-default pull-right" ng-click="goHome()"><i class="fa fa-2x fa-home"></i></button>
 					</div>

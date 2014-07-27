@@ -2,5 +2,22 @@
     "login": "Login",
     "login-user": "User Login",
     "username": "Username",
-    "password": "Password"
+    "password": "Password",
+    "password-confirm":  "Confirm Password",
+    "checking":  "Checking",
+    "wait": "Please Wait...",
+    "authenticating":  "Logging you in",
+    "register" : "New around here? Register a new user account.",
+    "register-user":  "Register account",
+    "no-image" :  "No image",
+    "sign-out": "Sign Out",
+    "register-new-user":  "Register a new user account",
+    "registering":  "Registering account",
+    "full-name" :  "Full Name",
+    "email":  "E-Mail Address",
+    "cancel" :  "Cancel",
+    "yes-sure" :  "Yes, I'm sure",
+    "almost-done" : "Almost done",
+    "confirmation-mail-sent":  "A confirmation e-mail was sent to the specified address.",
+    "check-validation-email":  "Please check your inbox and validate your new Eye View account by following the confirmation link inside the message."
 }

@@ -39,8 +39,8 @@
 						<ul class="dropdown-menu">
 							<!-- User image -->
 							<li class="user-header bg-light-blue">
-								<span ng-hide="currentUser.profileImageUrl">No image</span>
-								<img ng-show="currentUser.profileImageUrl" ng-src="{{currentUser.profileImageUrl}}" class="img-circle" alt="User Image" />
+								<span ng-hide="currentUser.profileImageUrl" translate="no-image"></span>
+								<img ng-show="currentUser.profileImageUrl" ng-src="{{currentUser.profileImageUrl}}" class="img-circle" />
 								<p>
 									{{currentUser.name}}
 									<!--<small>Member since Nov. 2012</small>-->
@@ -61,7 +61,7 @@
 									<a href="#" class="btn btn-default btn-flat">Profile</a>
 								</div>-->
 								<div class="pull-right" ng-controller="login">
-									<a class="btn btn-default btn-flat clickable" ng-click="logout()">Sign out</a>
+									<a class="btn btn-default btn-flat clickable" ng-click="logout()" translate="sign-out"></a>
 								</div>
 							</li>
 						</ul>
