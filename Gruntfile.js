@@ -262,6 +262,7 @@ module.exports = function (grunt) {
                       'scripts/{,*/}*.tmpl.html',
                       'images/{,*/}*.{webp}',
                       'fonts/{,*/}*',
+					  'languages/*.json',
 					  'web.config'
 					]
 				}, {
