@@ -19,5 +19,9 @@
     "yes-sure" :  "Yes, I'm sure",
     "almost-done" : "Almost done",
     "confirmation-mail-sent":  "A confirmation e-mail was sent to the specified address.",
-    "check-validation-email":  "Please check your inbox and validate your new Eye View account by following the confirmation link inside the message."
+    "check-validation-email":  "Please check your inbox and validate your new Eye View account by following the confirmation link inside the message.",
+    "validating-user-account":  "While we are validating the account.",
+    "problem" :  "Oops, we have a problem...",
+    "account-confirmed" :  "Confirmed...",
+    "going-to-login" :  "Taking you to login..."
 }

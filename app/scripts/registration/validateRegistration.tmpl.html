@@ -7,21 +7,21 @@
 
 						<div class="alert alert-info alert-dismissable top-10">
 							<i class="fa fa-cog"></i>
-							<h4><b>Please wait...</b></h4> While we are validating the account.
+							<h4><b translate="wait"></b></h4> {{ 'validating-user-account' | translate }}
 						</div>
 
 					</div>
 					<div class="clearfix" ng-show="invalid">
 						<div class="alert alert-danger alert-dismissable top-10">
 							<i class="fa fa-exclamation-triangle"></i>
-							<h4><b>Oops, we have a problem...</b></h4> {{because}}
+							<h4><b translate="problem"></b></h4> {{because}}
 						</div>
 						<button class="btn btn-default pull-right" ng-click="goHome()"><i class="fa fa-2x fa-home"></i></button>
 					</div>
 					<div class="clearfix" ng-show="valid">
 						<div class="alert alert-danger alert-dismissable top-10">
 							<i class="fa  fa-check"></i>
-							<h4><b>Confirmed...</b></h4> Taking you to login...
+							<h4><b translate="account-confirmed"></b></h4> {{ 'going-to-login' | translate }}
 						</div>
 						<button class="btn btn-default pull-right" ng-click="goHome()"><i class="fa fa-2x fa-home"></i></button>
 					</div>
