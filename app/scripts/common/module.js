@@ -1,8 +1,16 @@
 ﻿(function (angular) {
     'use strict';
 
-	angular.module('eye-view-common', ['angularFileUpload', 'eye-view-users'])
-	.config(['$routeProvider', function ($rp) {
+	angular.module('eye-view-common', ['angularFileUpload', 'eye-view-users', 'pascalprecht.translate'])
+	.config(['$routeProvider', '$translateProvider', function ($rp, $tp) {
+
+		$tp.determinePreferredLanguage();
+		$tp.useStaticFilesLoader({
+			prefix: '/languages/',
+			suffix: '.json'
+		});
+		//$tp.useLocalStorage();
+
 		$rp.when('/createUser', { templateUrl: 'scripts/users/createUser.tmpl.html', controller: 'createUser' });
 		$rp.when('/login', { templateUrl: 'scripts/users/login.tmpl.html', controller: 'login' });
 	}])
