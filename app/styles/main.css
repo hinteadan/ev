@@ -63,6 +63,12 @@ ul.portfolio-filter li:last-child{
 	height: 40px;
 }
 
+.logo.brand:hover {
+	background-image: url('../images/Logo_with_text_xtrasmall.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
 .brand.large {
 	background-image: url('../images/Logo_with_text_small.png');
 	width: 310px;

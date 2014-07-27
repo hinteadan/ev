@@ -25,9 +25,7 @@
 	<div ng-controller="uiRouter"></div>
 
 	<header class="header" ng-show="currentUser">
-		<span class="logo">
-			Eye View
-		</span>
+		<span class="logo brand"></span>
 		<!-- Header Navbar: style can be found in header.less -->
 		<nav class="navbar navbar-static-top" role="navigation">
 			<div class="navbar-right">
@@ -80,6 +78,8 @@
 			</h1>
 		</section>
 	</div>-->
+
+	<div class="brand large center-block" ng-hide="currentUser"></div>
 
 	<section class="content" ng-view></section>
 
