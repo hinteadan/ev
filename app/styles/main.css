@@ -54,3 +54,17 @@ ul.portfolio-filter li:last-child{
 .wrap {
 	white-space: normal;
 }
+
+.brand {
+	background-image: url('../images/Logo_with_text_xtrasmall.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100px;
+	height: 40px;
+}
+
+.brand.large {
+	background-image: url('../images/Logo_with_text_small.png');
+	width: 310px;
+	height: 130px;
+}
