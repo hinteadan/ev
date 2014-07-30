@@ -4,7 +4,8 @@
 	angular.module('eye-view-common', ['angularFileUpload', 'eye-view-users', 'pascalprecht.translate'])
 	.config(['$routeProvider', '$translateProvider', function ($rp, $tp) {
 
-		$tp.determinePreferredLanguage();
+	    $tp.determinePreferredLanguage();
+	    $tp.preferredLanguage('ro');
 		$tp.useStaticFilesLoader({
 			prefix: '/languages/',
 			suffix: '.json'
