@@ -5,7 +5,7 @@
 	.config(['$routeProvider', '$translateProvider', function ($rp, $tp) {
 
 	    $tp.determinePreferredLanguage();
-	    $tp.preferredLanguage('ro');
+	    //$tp.preferredLanguage('ro');
 		$tp.useStaticFilesLoader({
 			prefix: '/languages/',
 			suffix: '.json'
