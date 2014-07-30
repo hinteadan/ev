@@ -14,46 +14,46 @@
                 month: 'problem-timespan-a-month'
             },
             redEyeLevel: {
-                none: 0,
-                few: 1,
-                stain: 2,
-                full: 3
+                none: 'no',
+                few: 'few-blood-vessels',
+                stain: 'blood-stain',
+                full: 'full-red-eye'
             },
             tearLevel: {
-                none: 0,
-                allTheTime: 1,
-                whenLit: 2,
-                occasionally: 3
+                none: 'no',
+                allTheTime: 'all-the-time',
+                whenLit: 'when-lit',
+                occasionally: 'from-time-to-time'
             },
             secretionLevel: {
-                none: 0,
-                full: 1,
-                allDay: 2,
-                occasionally: 3
+                none: 'no',
+                full: 'yes',
+                allDay: 'all-day',
+                occasionally: 'from-time-to-time-during-day'
             },
             hurtLevel: {
-                none: 0,
-                point: 1,
-                full: 2
+                none: 'no',
+                point: 'at-a-point',
+                full: 'whole-eye-in-pain'
             },
             pinSensation: {
-                none: 0,
-                asTension: 1,
-                foreignBody: 2,
-                burn: 3
+                none: 'no',
+                asTension: 'as-tension',
+                foreignBody: 'foreign-body',
+                burn: 'burning'
             },
             continuousSensation: {
-                none: 0,
-                blink: 1,
-                occasionally: 2,
-                movement: 3
+                none: 'no-eye-pain',
+                blink: 'on-blink',
+                occasionally: 'appear-and-disappear',
+                movement: 'on-eye-movement'
             },
             sightChange: {
-                none: 0,
-                low: 1,
-                dim: 2,
-                double: 3,
-                unclear: 4
+                none: 'no',
+                low: 'sight-low',
+                dim: 'sight-dim',
+                double: 'sight-double',
+                unclear: 'unclear-clear-on-blink'
             }
         };
 
@@ -71,7 +71,7 @@
         this.pinSensation = options.pinSensation.none;
         this.continuousSensation = options.continuousSensation.none;
         this.sightChange = options.sightChange.none;
-        this.eyeLidsInflamed = false;
+        this.areEyeLidsInflamed = false;
         this.isLightBothering = false;
         this.otherDetails = null;
 

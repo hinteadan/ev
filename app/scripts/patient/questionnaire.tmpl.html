@@ -34,10 +34,10 @@
                                 </label>
                                 <div class="btn-group btn-group-justified">
                                     <div class="btn-group">
-                                        <button class="btn btn-default active" type="button" translate="yes"></button>
+                                        <button class="btn btn-default" type="button" translate="yes" ng-class="{ active: q.wasHit }" ng-click="q.wasHit = true"></button>
                                     </div>
                                     <div class="btn-group">
-                                        <button class="btn btn-default" type="button" translate="no"></button>
+                                        <button class="btn btn-default" type="button" translate="no" ng-class="{ active: !q.wasHit }" ng-click="q.wasHit = false"></button>
                                     </div>
                                 </div>
                             </div>
@@ -48,10 +48,10 @@
                                 </label>
                                 <div class="btn-group btn-group-justified">
                                     <div class="btn-group">
-                                        <button class="btn btn-default active" type="button" translate="yes"></button>
+                                        <button class="btn btn-default" type="button" translate="yes" ng-class="{ active: q.wasPierced }" ng-click="q.wasPierced = true"></button>
                                     </div>
                                     <div class="btn-group">
-                                        <button class="btn btn-default" type="button" translate="no"></button>
+                                        <button class="btn btn-default" type="button" translate="no" ng-class="{ active: !q.wasPierced }" ng-click="q.wasPierced = false"></button>
                                     </div>
                                 </div>
                             </div>
@@ -60,18 +60,14 @@
                                 <label for="object-of-injury">
                                     {{'object-causing-injury'|translate}}
                                 </label>
-                                <input id="object-of-injury" type="text" class="form-control" />
+                                <input id="object-of-injury" type="text" ng-model="q.injuryCausedBy" class="form-control" />
                             </div>
 
                             <div class="form-group">
                                 <label for="problem-red-eye">
                                     {{'is-eye-red'|translate}}
                                 </label>
-                                <select id="problem-red-eye" class="form-control" ng-required="true">
-                                    <option translate="no"></option>
-                                    <option translate="few-blood-vessels"></option>
-                                    <option translate="blood-stain"></option>
-                                    <option translate="full-red-eye"></option>
+                                <select id="problem-red-eye" class="form-control" ng-required="true" ng-model="q.redEye" ng-options="v|translate for (k,v) in q.opts.redEyeLevel">
                                 </select>
                             </div>
 
@@ -79,11 +75,7 @@
                                 <label for="problem-tears">
                                     {{'are-there-tears'|translate}}
                                 </label>
-                                <select id="problem-tears" class="form-control" ng-required="true">
-                                    <option translate="no"></option>
-                                    <option translate="all-the-time"></option>
-                                    <option translate="when-lit"></option>
-                                    <option translate="from-time-to-time"></option>
+                                <select id="problem-tears" class="form-control" ng-required="true" ng-model="q.tears" ng-options="v|translate for (k,v) in q.opts.tearLevel">
                                 </select>
                             </div>
 
@@ -91,11 +83,7 @@
                                 <label for="problem-secretion">
                                     {{'is-there-secretion'|translate}}
                                 </label>
-                                <select id="problem-secretion" class="form-control" ng-required="true">
-                                    <option translate="yes"></option>
-                                    <option translate="no"></option>
-                                    <option translate="all-day"></option>
-                                    <option translate="from-time-to-time-during-day"></option>
+                                <select id="problem-secretion" class="form-control" ng-required="true" ng-model="q.secretion" ng-options="v|translate for (k,v) in q.opts.secretionLevel">
                                 </select>
                             </div>
 
@@ -103,10 +91,7 @@
                                 <label for="problem-hurt">
                                     {{'does-it-hurt'|translate}}
                                 </label>
-                                <select id="problem-hurt" class="form-control" ng-required="true">
-                                    <option translate="no"></option>
-                                    <option translate="at-a-point"></option>
-                                    <option translate="whole-eye-in-pain"></option>
+                                <select id="problem-hurt" class="form-control" ng-required="true" ng-model="q.hurt" ng-options="v|translate for (k,v) in q.opts.hurtLevel">
                                 </select>
                             </div>
 
@@ -114,11 +99,7 @@
                                 <label for="problem-pin-sensation">
                                     {{'pin-sensation'|translate}}
                                 </label>
-                                <select id="problem-pin-sensation" class="form-control" ng-required="true">
-                                    <option translate="no"></option>
-                                    <option translate="as-tension"></option>
-                                    <option translate="foreign-body"></option>
-                                    <option translate="burning"></option>
+                                <select id="problem-pin-sensation" class="form-control" ng-required="true" ng-model="q.pinSensation" ng-options="v|translate for (k,v) in q.opts.pinSensation">
                                 </select>
                             </div>
 
@@ -126,11 +107,7 @@
                                 <label for="problem-continuous-pain">
                                     {{'continuous-pain'|translate}}
                                 </label>
-                                <select id="problem-continuous-pain" class="form-control" ng-required="true">
-                                    <option translate="no-eye-pain"></option>
-                                    <option translate="on-blink"></option>
-                                    <option translate="appear-and-disappear"></option>
-                                    <option translate="on-eye-movement"></option>
+                                <select id="problem-continuous-pain" class="form-control" ng-required="true" ng-model="q.continuousSensation" ng-options="v|translate for (k,v) in q.opts.continuousSensation">
                                 </select>
                             </div>
 
@@ -138,12 +115,7 @@
                                 <label for="problem-sight-modified">
                                     {{'sight-modified'|translate}}
                                 </label>
-                                <select id="problem-sight-modified" class="form-control" ng-required="true">
-                                    <option translate="no"></option>
-                                    <option translate="sight-low"></option>
-                                    <option translate="sight-dim"></option>
-                                    <option translate="sight-double"></option>
-                                    <option translate="unclear-clear-on-blink"></option>
+                                <select id="problem-sight-modified" class="form-control" ng-required="true" ng-model="q.sightChange" ng-options="v|translate for (k,v) in q.opts.sightChange">
                                 </select>
                             </div>
 
@@ -153,10 +125,10 @@
                                 </label>
                                 <div class="btn-group btn-group-justified">
                                     <div class="btn-group">
-                                        <button class="btn btn-default active" type="button" translate="yes"></button>
+                                        <button class="btn btn-default" type="button" translate="yes" ng-class="{ active: q.areEyeLidsInflamed }" ng-click="q.areEyeLidsInflamed = true"></button>
                                     </div>
                                     <div class="btn-group">
-                                        <button class="btn btn-default" type="button" translate="no"></button>
+                                        <button class="btn btn-default" type="button" translate="no" ng-class="{ active: !q.areEyeLidsInflamed }" ng-click="q.areEyeLidsInflamed = false"></button>
                                     </div>
                                 </div>
                             </div>
@@ -167,10 +139,10 @@
                                 </label>
                                 <div class="btn-group btn-group-justified">
                                     <div class="btn-group">
-                                        <button class="btn btn-default active" type="button" translate="yes"></button>
+                                        <button class="btn btn-default" type="button" translate="yes" ng-class="{ active: q.isLightBothering }" ng-click="q.isLightBothering = true"></button>
                                     </div>
                                     <div class="btn-group">
-                                        <button class="btn btn-default" type="button" translate="no"></button>
+                                        <button class="btn btn-default" type="button" translate="no" ng-class="{ active: !q.isLightBothering }" ng-click="q.isLightBothering = false"></button>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +151,7 @@
                                 <label for="other-details">
                                     {{'write-other-details'|translate}}
                                 </label>
-                                <textarea id="other-details" class="form-control resize-verical"></textarea>
+                                <textarea id="other-details" class="form-control resize-verical" ng-model="q.otherDetails"></textarea>
                             </div>
                         </fieldset>
                     </form>
