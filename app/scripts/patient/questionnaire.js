@@ -59,23 +59,21 @@
 
     function Questionnaire() {
         this.age = 30;
-        this.sex = options.sex.female;
-        this.timespan = options.problemTimespan.today;
+        this.sex = 'female';
+        this.timespan = 'today';
         this.wasHit = false;
         this.wasPierced = false;
         this.injuryCausedBy = null;
-        this.redEye = options.redEyeLevel.none;
-        this.tears = options.tearLevel.none;
-        this.secretion = options.secretionLevel.none;
-        this.hurt = options.hurtLevel.none;
-        this.pinSensation = options.pinSensation.none;
-        this.continuousSensation = options.continuousSensation.none;
-        this.sightChange = options.sightChange.none;
+        this.redEye = 'none';
+        this.tears = 'none';
+        this.secretion = 'none';
+        this.hurt = 'none';
+        this.pinSensation = 'none';
+        this.continuousSensation = 'none';
+        this.sightChange = 'none';
         this.areEyeLidsInflamed = false;
         this.isLightBothering = false;
         this.otherDetails = null;
-
-        this.opts = options;
     }
     Questionnaire.opts = options;
 

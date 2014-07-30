@@ -18,14 +18,14 @@
                                 <label for="sex">
                                     {{'sex'|translate}}
                                 </label>
-                                <select id="sex" class="form-control" ng-required="true" ng-model="q.sex" ng-options="v|translate for (k,v) in q.opts.sex"></select>
+                                <select id="sex" class="form-control" ng-required="true" ng-model="q.sex" ng-options="k as v|translate for (k,v) in qopts.sex"></select>
                             </div>
 
                             <div class="form-group">
                                 <label for="problem-timespan">
                                     {{'problem-timespan'|translate}}
                                 </label>
-                                <select id="problem-timespan" class="form-control" ng-required="true" ng-model="q.timespan" ng-options="v|translate for (k,v) in q.opts.problemTimespan"></select>
+                                <select id="problem-timespan" class="form-control" ng-required="true" ng-model="q.timespan" ng-options="k as v|translate for (k,v) in qopts.problemTimespan"></select>
                             </div>
 
                             <div class="form-group">
@@ -67,7 +67,7 @@
                                 <label for="problem-red-eye">
                                     {{'is-eye-red'|translate}}
                                 </label>
-                                <select id="problem-red-eye" class="form-control" ng-required="true" ng-model="q.redEye" ng-options="v|translate for (k,v) in q.opts.redEyeLevel">
+                                <select id="problem-red-eye" class="form-control" ng-required="true" ng-model="q.redEye" ng-options="k as v|translate for (k,v) in qopts.redEyeLevel">
                                 </select>
                             </div>
 
@@ -75,7 +75,7 @@
                                 <label for="problem-tears">
                                     {{'are-there-tears'|translate}}
                                 </label>
-                                <select id="problem-tears" class="form-control" ng-required="true" ng-model="q.tears" ng-options="v|translate for (k,v) in q.opts.tearLevel">
+                                <select id="problem-tears" class="form-control" ng-required="true" ng-model="q.tears" ng-options="k as v|translate for (k,v) in qopts.tearLevel">
                                 </select>
                             </div>
 
@@ -83,7 +83,7 @@
                                 <label for="problem-secretion">
                                     {{'is-there-secretion'|translate}}
                                 </label>
-                                <select id="problem-secretion" class="form-control" ng-required="true" ng-model="q.secretion" ng-options="v|translate for (k,v) in q.opts.secretionLevel">
+                                <select id="problem-secretion" class="form-control" ng-required="true" ng-model="q.secretion" ng-options="k as v|translate for (k,v) in qopts.secretionLevel">
                                 </select>
                             </div>
 
@@ -91,7 +91,7 @@
                                 <label for="problem-hurt">
                                     {{'does-it-hurt'|translate}}
                                 </label>
-                                <select id="problem-hurt" class="form-control" ng-required="true" ng-model="q.hurt" ng-options="v|translate for (k,v) in q.opts.hurtLevel">
+                                <select id="problem-hurt" class="form-control" ng-required="true" ng-model="q.hurt" ng-options="k as v|translate for (k,v) in qopts.hurtLevel">
                                 </select>
                             </div>
 
@@ -99,7 +99,7 @@
                                 <label for="problem-pin-sensation">
                                     {{'pin-sensation'|translate}}
                                 </label>
-                                <select id="problem-pin-sensation" class="form-control" ng-required="true" ng-model="q.pinSensation" ng-options="v|translate for (k,v) in q.opts.pinSensation">
+                                <select id="problem-pin-sensation" class="form-control" ng-required="true" ng-model="q.pinSensation" ng-options="k as v|translate for (k,v) in qopts.pinSensation">
                                 </select>
                             </div>
 
@@ -107,7 +107,7 @@
                                 <label for="problem-continuous-pain">
                                     {{'continuous-pain'|translate}}
                                 </label>
-                                <select id="problem-continuous-pain" class="form-control" ng-required="true" ng-model="q.continuousSensation" ng-options="v|translate for (k,v) in q.opts.continuousSensation">
+                                <select id="problem-continuous-pain" class="form-control" ng-required="true" ng-model="q.continuousSensation" ng-options="k as v|translate for (k,v) in qopts.continuousSensation">
                                 </select>
                             </div>
 
@@ -115,7 +115,7 @@
                                 <label for="problem-sight-modified">
                                     {{'sight-modified'|translate}}
                                 </label>
-                                <select id="problem-sight-modified" class="form-control" ng-required="true" ng-model="q.sightChange" ng-options="v|translate for (k,v) in q.opts.sightChange">
+                                <select id="problem-sight-modified" class="form-control" ng-required="true" ng-model="q.sightChange" ng-options="k as v|translate for (k,v) in qopts.sightChange">
                                 </select>
                             </div>
 

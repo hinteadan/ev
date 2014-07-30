@@ -81,6 +81,8 @@
     		$('#fileUpload').click();
     	};
     	$s.submit = function (form) {
+    	    log(questionnaire);
+    	    return;
     		if (!form.$valid) {
     			return;
     		}

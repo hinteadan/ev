@@ -12,6 +12,7 @@
             },
             link: function (scope) {
                 scope.q = scope.questionnaire || new Questionnaire();
+                scope.qopts = Questionnaire.opts;
             }
         };
 
