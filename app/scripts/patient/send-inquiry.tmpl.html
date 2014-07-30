@@ -24,10 +24,11 @@
 							</div>
 						</div>
 					</div>
-					<textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5" ng-model="message.content"></textarea>
-					<button type="submit" class="btn btn-primary btn-lg btn-block top-10" ng-disabled="submit.ting">
+					<!--<textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5" ng-model="message.content"></textarea>-->
+                    <questionnaire-form questionnaire="questionnaire"></questionnaire-form>
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="submit.ting">
 						<i class="fa fa-cloud-upload"></i>
-						<span ng-hide="submit.confirm || submit.ting">Send</span>
+                        <span ng-hide="submit.confirm || submit.ting" translate="send-inquiry"></span>
 						<span ng-show="submit.confirm">Press again to confirm message send</span>
 						<span ng-show="submit.ting">Sending message...</span>
 					</button>
