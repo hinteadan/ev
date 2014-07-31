@@ -84,6 +84,6 @@
         return result;
     };
 
-    angular.module('eye-view-patient').value('Questionnaire', Questionnaire);
+    angular.module('eye-view-common').value('Questionnaire', Questionnaire);
 
 }).call(this, this.angular);

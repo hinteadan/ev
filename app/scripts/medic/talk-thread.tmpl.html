@@ -30,6 +30,7 @@
 							<div>
 								<div ng-repeat="image in m.Data.images track by $index" ng-click="openImage(image)" class="margin image-thumb" ng-style="{'background-image': cssUrl(image.id)}"></div>
 							</div>
+                            <questionnaire-view questionnaire="m.Data.questionnaire" ng-show="m.Data.questionnaire"></questionnaire-view>
 						</div>
 
 						<div class='timeline-footer'>

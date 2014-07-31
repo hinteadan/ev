@@ -1,44 +1,45 @@
 ﻿<div>
-	<div class="row">
-		<div class="col-md-12">
-			<button class="btn btn-primary btn-block btn-lg" ng-click="inquire()">
-				<span ng-show="messages.length">Reply</span>
-				<span ng-hide="messages.length">Ask for advice</span>
-			</button>
-		</div>
-	</div>
-	<div class="row top-10" ng-show="messages.length">
-		<div class="col-md-12">
-			<ul class="timeline">
-				<!--<li class="time-label">
-					<span class="bg-green">
-						10 Feb. 2014
-					</span>
-				</li>-->
-				<li ng-repeat="m in messages">
-					<i class="fa  {{m.Data.css()}}"></i>
-					<div class="timeline-item">
-						<span class="time">{{m.Data.sentOn}}</span>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary btn-block btn-lg" ng-click="inquire()">
+                <span ng-show="messages.length">Reply</span>
+                <span ng-hide="messages.length">Ask for advice</span>
+            </button>
+        </div>
+    </div>
+    <div class="row top-10" ng-show="messages.length">
+        <div class="col-md-12">
+            <ul class="timeline">
+                <!--<li class="time-label">
+                    <span class="bg-green">
+                        10 Feb. 2014
+                    </span>
+                </li>-->
+                <li ng-repeat="m in messages">
+                    <i class="fa  {{m.Data.css()}}"></i>
+                    <div class="timeline-item">
+                        <span class="time">{{m.Data.sentOn}}</span>
 
-						<h3 class="timeline-header"><a href="#">{{m.Data.writerName || m.Data.writerId}}</a> wrote...</h3>
+                        <h3 class="timeline-header"><a href="#">{{m.Data.writerName || m.Data.writerId}}</a> wrote...</h3>
 
-						<div class="timeline-body">
-							<h4>{{m.Data.subject}}</h4>
-							<p>{{m.Data.content}}</p>
-							<div>
-								<div ng-repeat="image in m.Data.images track by $index" ng-click="openImage(image)" class="margin image-thumb" ng-style="{'background-image': cssUrl(image.id)}"></div>
-							</div>
-						</div>
+                        <div class="timeline-body">
+                            <h4>{{m.Data.subject}}</h4>
+                            <p>{{m.Data.content}}</p>
+                            <div>
+                                <div ng-repeat="image in m.Data.images track by $index" ng-click="openImage(image)" class="margin image-thumb" ng-style="{'background-image': cssUrl(image.id)}"></div>
+                            </div>
+                            <questionnaire-view questionnaire="m.Data.questionnaire" ng-show="m.Data.questionnaire"></questionnaire-view>
+                        </div>
 
-						<div class='timeline-footer'>
+                        <div class='timeline-footer'>
 
-						</div>
-					</div>
-				</li>
-				<li>
-					<i class="fa fa-clock-o"></i>
-				</li>
-			</ul>
-		</div>
-	</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-clock-o"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

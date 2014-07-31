@@ -1,0 +1,52 @@
+﻿<div>
+    <ul>
+        <li>
+            <strong translate="age"></strong> {{q.age}}
+        </li>
+        <li>
+            <strong translate="sex"></strong> {{opts.sex[q.sex]|translate}}
+        </li>
+        <li>
+            <strong translate="problem-timespan"></strong> {{opts.problemTimespan[q.timespan]|translate}}
+        </li>
+        <li>
+            <strong translate="was-the-eye-hit"></strong> <span ng-show="q.wasHit" translate="yes"></span><span ng-hide="q.wasHit" translate="no"></span>
+        </li>
+        <li>
+            <strong translate="was-the-eye-pierced"></strong> <span ng-show="q.wasPierced" translate="yes"></span><span ng-hide="q.wasPierced" translate="no"></span>
+        </li>
+        <li>
+            <strong translate="object-causing-injury"></strong> {{q.injuryCausedBy || 'N/A'}}
+        </li>
+        <li>
+            <strong translate="is-eye-red"></strong> {{opts.redEyeLevel[q.redEye]|translate}}
+        </li>
+        <li>
+            <strong translate="are-there-tears"></strong> {{opts.tearLevel[q.tears]|translate}}
+        </li>
+        <li>
+            <strong translate="is-there-secretion"></strong> {{opts.secretionLevel[q.secretion]|translate}}
+        </li>
+        <li>
+            <strong translate="does-it-hurt"></strong> {{opts.hurtLevel[q.hurt]|translate}}
+        </li>
+        <li>
+            <strong translate="pin-sensation"></strong> {{opts.pinSensation[q.pinSensation]|translate}}
+        </li>
+        <li>
+            <strong translate="continuous-pain"></strong> {{opts.continuousSensation[q.continuousSensation]|translate}}
+        </li>
+        <li>
+            <strong translate="sight-modified"></strong> {{opts.sightChange[q.sightChange]|translate}}
+        </li>
+        <li>
+            <strong translate="are-eyelids-inflamed"></strong> <span ng-show="q.areEyeLidsInflamed" translate="yes"></span><span ng-hide="q.areEyeLidsInflamed" translate="no"></span>
+        </li>
+        <li>
+            <strong translate="does-light-bother"></strong> <span ng-show="q.isLightBothering" translate="yes"></span><span ng-hide="q.isLightBothering" translate="no"></span>
+        </li>
+        <li>
+            <strong translate="other-details"></strong> {{q.otherDetails || 'N/A'}}
+        </li>
+    </ul>
+</div>
