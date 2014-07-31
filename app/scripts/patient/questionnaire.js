@@ -76,6 +76,13 @@
         this.otherDetails = null;
     }
     Questionnaire.opts = options;
+    Questionnaire.fromDto = function (dto) {
+        var result = new Questionnaire();
+        for (var property in dto) {
+            result[property] = dto[property];
+        }
+        return result;
+    };
 
     angular.module('eye-view-patient').value('Questionnaire', Questionnaire);
 

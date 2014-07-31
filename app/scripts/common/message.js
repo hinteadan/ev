@@ -28,6 +28,7 @@
 
 		this.subject = subject || null;
 		this.content = null;
+		this.questionnaire = null;
 		this.images = [];
 
 		this.set = function (property, value) {

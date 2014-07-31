@@ -24,8 +24,8 @@
 							</div>
 						</div>
 					</div>
-					<!--<textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5" ng-model="message.content"></textarea>-->
-                    <questionnaire-form questionnaire="questionnaire"></questionnaire-form>
+                    <textarea class="form-control input-lg resize-verical" placeholder="Message" rows="5" ng-model="message.content" ng-hide="message.questionnaire"></textarea>
+                    <questionnaire-form questionnaire="questionnaire" ng-show="message.questionnaire"></questionnaire-form>
 					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-disabled="submit.ting">
 						<i class="fa fa-cloud-upload"></i>
                         <span ng-hide="submit.confirm || submit.ting" translate="send-inquiry"></span>

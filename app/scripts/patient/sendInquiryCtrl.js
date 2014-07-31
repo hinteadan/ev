@@ -10,8 +10,12 @@
             questionnaire = new Q();
 
         auth.authenticate().then(function (user) {
-        	$s.message = message = new Message(params.get('replyingTo'), user.username, params.get('subject'))
+            $s.message = message = new Message(params.get('replyingTo'), user.username, params.get('subject'))
 				.set('writerName', user.name);
+            if(!message.inReplyTo){
+                message.set('questionnaire', questionnaire);
+            }
+
         }, log);
 
     	function uploadFiles(files) {
@@ -81,8 +85,6 @@
     		$('#fileUpload').click();
     	};
     	$s.submit = function (form) {
-    	    log(questionnaire);
-    	    return;
     		if (!form.$valid) {
     			return;
     		}
