@@ -10,7 +10,8 @@
 
         auth.authenticate().then(function (user) {
         	$s.message = message = new Message(params.get('replyingTo'), user.username, params.get('subject'), $p.pid)
-				.set('writerName', user.name);
+				.set('writerName', user.name)
+        		.set('threadId', params.get('threadId'));
         }, log);
 
         function uploadFiles(files) {

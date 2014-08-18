@@ -7,8 +7,9 @@
     angular.module('eye-view-medic')
     .controller('threadCtrl', ['$scope', '$location', '$window', '$routeParams', 'messenger', 'jsParams', function ($s, $loc, $w, $rp, mess, params) {
 
-        mess.threadForUser($rp.pid).then(function (messages) {
-            $s.messages = messages;
+    	mess.threadsForUser($rp.pid).then(function (messageThreads) {
+    		log(messageThreads);
+    		$s.messageThreads = messageThreads;
         }, log);
 
         function imageCssUrl(id) {
@@ -25,13 +26,13 @@
         	return replyPrefix + subject;
         }
 
-        $s.messages = [];
+        $s.messageThreads = [];
         $s.cssUrl = imageCssUrl;
-        $s.respond = function () {
-        	if ($s.messages.length) {
-        		params.set('subject', generateSubject($s.messages[0].Data.subject));
-        		params.set('replyingTo', $s.messages[0].Id);
-        	}
+        $s.respond = function (threadId) {
+        	params.set('subject', generateSubject($s.messageThreads[threadId][0].Data.subject));
+        	params.set('replyingTo', $s.messageThreads[threadId][0].Id);
+        	params.set('threadId', threadId);
+
             $loc.path('/respond/' + $rp.pid);
         };
         $s.openImage = function (image) {
