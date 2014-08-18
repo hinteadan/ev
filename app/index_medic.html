@@ -30,6 +30,12 @@
 		<nav class="navbar navbar-static-top" role="navigation">
 			<div class="navbar-right">
 				<ul class="nav navbar-nav">
+
+					<li ng-controller="languageCtrl">
+						<a class="clickable" ng-click="setLanguage('ro_RO')" ng-hide="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to Romanian</a>
+						<a class="clickable" ng-click="setLanguage('en_US')" ng-show="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to English</a>
+					</li>
+
 					<!-- User Account: style can be found in dropdown.less -->
 					<li class="dropdown user user-menu">
 						<a class="dropdown-toggle clickable" data-toggle="dropdown">

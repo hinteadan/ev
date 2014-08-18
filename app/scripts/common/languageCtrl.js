@@ -12,7 +12,6 @@
     	};
 
     	$s.currentLanguage = function () {
-    		console.log(currentLanguage);
     		return currentLanguage;
     	};
     }]);
