@@ -8,8 +8,9 @@
     .controller('talkThreadCtrl', ['$scope', '$location', '$window', 'messenger', 'authenticator', 'jsParams', function ($s, $loc, $w, mess, auth, params) {
 
         auth.authenticate().then(function (user) {
-            mess.threadForUser(user.username).then(function (messages) {
-                $s.messages = messages;
+        	mess.threadsForUser(user.username).then(function (messageThreads) {
+        		log(messageThreads);
+        		$s.messageThreads = messageThreads;
             }, log);
         }, log);
 
@@ -27,13 +28,15 @@
     		return replyPrefix + subject;
     	}
 
-    	$s.messages = [];
+    	$s.messageThreads = [];
     	$s.cssUrl = imageCssUrl;
     	$s.inquire = function () {
-    		if ($s.messages.length) {
-    			params.set('subject', generateSubject($s.messages[0].Data.subject));
-    			params.set('replyingTo', $s.messages[0].Id);
-    		}
+    		$loc.path('/inquire');
+    	};
+    	$s.replyOn = function (threadId) {
+    		params.set('subject', generateSubject($s.messageThreads[threadId][0].Data.subject));
+    		params.set('replyingTo', $s.messageThreads[threadId][0].Id);
+    		params.set('threadId', threadId);
     		$loc.path('/inquire');
     	};
     	$s.openImage = function (image) {

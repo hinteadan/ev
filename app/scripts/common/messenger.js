@@ -51,7 +51,7 @@
     		return deferred.promise;
     	};
 
-    	this.threadForUser = function (userId) {
+    	this.threadsForUser = function (userId) {
     		var deferred = $q.defer(),
         		query = hds.queryWithAnd()
 				.where('patientId')(is.EqualTo)(userId);
@@ -62,10 +62,16 @@
     				deferred.reject(result.reason);
     				return;
     			}
-    			deferred.resolve(_(result.data).reverse().map(function (entity) {
-    				entity.Data = Message.fromDto(entity.Data);
-    				return entity;
-    			}).value());
+
+    			deferred.resolve(
+					_(result.data)
+					.reverse()
+					.map(function (entity) {
+    					entity.Data = Message.fromDto(entity.Data);
+    					return entity;
+					})
+					.groupBy(function (e) { return e.Data.threadId; })
+					.value());
     		});
 
     		return deferred.promise;

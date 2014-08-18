@@ -14,8 +14,10 @@
 			'medicReply': 'fa-user-md'
 		};
 
-	function Message(inReplyTo, userId, subject, patientId) {
+	function Message(inReplyTo, userId, subject, patientId, threadId) {
 		var self = this;
+
+		this.threadId = threadId;
 
 		this.inReplyTo = inReplyTo || null;
 		this.isRoot = inReplyTo ? false : true;
@@ -52,6 +54,7 @@
 
 		this.meta = function () {
 			return {
+				threadId: self.threadId,
 				writerId: self.writerId,
 				patientId: self.patientId,
 				isRoot: self.isRoot,

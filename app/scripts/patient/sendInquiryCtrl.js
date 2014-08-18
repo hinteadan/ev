@@ -4,14 +4,15 @@
 	var log = this.console.log;
 
 	angular.module('eye-view-patient')
-    .controller('sendInquiryCtrl', ['$scope', '$timeout', '$q', '$location', '$routeParams', 'messenger', 'Message', 'authenticator', 'ImageInfo', 'jsParams', 'Questionnaire', function ($s, $t, $q, $l, $p, mess, Message, auth, ImageInfo, params, Q) {
+    .controller('sendInquiryCtrl', ['$scope', '$timeout', '$q', '$location', '$routeParams', 'messenger', 'Message', 'authenticator', 'ImageInfo', 'jsParams', 'Questionnaire', 'hasher', function ($s, $t, $q, $l, $p, mess, Message, auth, ImageInfo, params, Q, hasher) {
 
         var message = null,
             questionnaire = new Q();
 
         auth.authenticate().then(function (user) {
-            $s.message = message = new Message(params.get('replyingTo'), user.username, params.get('subject'))
-				.set('writerName', user.name);
+        	$s.message = message = new Message(params.get('replyingTo'), user.username, params.get('subject'))
+				.set('writerName', user.name)
+				.set('threadId', params.get('threadId') || hasher.hash(user.username + String(new Date().getTime())));
             if(!message.inReplyTo){
                 message.set('questionnaire', questionnaire);
             }
