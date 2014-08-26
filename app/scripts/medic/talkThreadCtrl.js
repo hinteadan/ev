@@ -1,16 +1,15 @@
 ﻿(function (angular) {
     'use strict';
 
-	var log = this.console.log,
-		replyPrefix = 'RE: ';
+	var replyPrefix = 'RE: ';
 
     angular.module('eye-view-medic')
     .controller('threadCtrl', ['$scope', '$location', '$window', '$routeParams', 'messenger', 'jsParams', function ($s, $loc, $w, $rp, mess, params) {
 
     	mess.threadsForUser($rp.pid).then(function (messageThreads) {
-    		log(messageThreads);
+    		
     		$s.messageThreads = messageThreads;
-        }, log);
+        });
 
         function imageCssUrl(id) {
             return id ? 'url(' + mess.imageUrl(id) + ')' : 'none';

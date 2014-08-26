@@ -1,18 +1,16 @@
 ﻿(function (angular) {
 	'use strict';
 
-	var log = this.console.log,
-		replyPrefix = 'RE: ';
+	var replyPrefix = 'RE: ';
 
 	angular.module('eye-view-patient')
     .controller('talkThreadCtrl', ['$scope', '$location', '$window', 'messenger', 'authenticator', 'jsParams', function ($s, $loc, $w, mess, auth, params) {
 
         auth.authenticate().then(function (user) {
         	mess.threadsForUser(user.username).then(function (messageThreads) {
-        		log(messageThreads);
         		$s.messageThreads = messageThreads;
-            }, log);
-        }, log);
+            });
+        });
 
     	function imageCssUrl(id) {
     		return id ? 'url(' + mess.imageUrl(id) + ')' : 'none';
