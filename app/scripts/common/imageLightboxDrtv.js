@@ -1,4 +1,4 @@
-﻿(function (angular, $) {
+﻿(function (angular) {
 
 	'use strict';
 
@@ -15,4 +15,4 @@
 
 	}]);
 
-}).call(this, this.angular, this.jQuery);
+}).call(this, this.angular);
