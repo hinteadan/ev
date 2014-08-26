@@ -12,6 +12,10 @@
             });
         });
 
+        function imageUrl(id) {
+        	return id ? mess.imageUrl(id) : '';
+        }
+
     	function imageCssUrl(id) {
     		return id ? 'url(' + mess.imageUrl(id) + ')' : 'none';
     	}
@@ -28,6 +32,7 @@
 
     	$s.messageThreads = [];
     	$s.cssUrl = imageCssUrl;
+    	$s.imgUrl = imageUrl;
     	$s.inquire = function () {
     		$loc.path('/inquire');
     	};

@@ -11,6 +11,10 @@
     		$s.messageThreads = messageThreads;
         });
 
+    	function imageUrl(id) {
+    		return id ? mess.imageUrl(id) : '';
+    	}
+
         function imageCssUrl(id) {
             return id ? 'url(' + mess.imageUrl(id) + ')' : 'none';
         }
@@ -27,6 +31,7 @@
 
         $s.messageThreads = [];
         $s.cssUrl = imageCssUrl;
+        $s.imgUrl = imageUrl;
         $s.respond = function (threadId) {
         	params.set('subject', generateSubject($s.messageThreads[threadId][0].Data.subject));
         	params.set('replyingTo', $s.messageThreads[threadId][0].Id);

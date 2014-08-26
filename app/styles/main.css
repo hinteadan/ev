@@ -74,3 +74,9 @@ ul.portfolio-filter li:last-child{
 	width: 310px;
 	height: 130px;
 }
+
+#imagelightbox
+{ 
+    -ms-touch-action: none;
+    touch-action: none;
+}

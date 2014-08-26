@@ -286,6 +286,14 @@ module.exports = function (grunt) {
 					src: [
                       '{,*/}*'
 					]
+				}, {
+					expand: true,
+					dot: true,
+					cwd: '<%= yeoman.app %>/bower_components/swipebox/src/img',
+					dest: '<%= yeoman.dist %>/img',
+					src: [
+                      '{,*/}*'
+					]
 				}]
 			},
 			styles: {
