@@ -16,6 +16,10 @@
 
 							<input type="email" placeholder="{{'email'|translate}}" ng-model="user.email" class="form-control top-10" ng-required="true" />
 
+                            <input type="text" placeholder="{{'phone'|translate}}" ng-model="user.phone" class="form-control top-10" />
+
+                            <input type="text" placeholder="{{'family-doctor'|translate}}" ng-model="user.familyDoctor" class="form-control top-10" />
+
 							<button type="submit" class="btn btn-block btn-lg btn-primary top-10" ng-disabled="register.ing">
 								<span ng-hide="register.ing" translate="register-user"></span>
 								<span ng-show="register.ing"><i class="fa fa-cloud"></i> {{ 'registering' | translate }}, {{ 'wait' | translate }}</span>

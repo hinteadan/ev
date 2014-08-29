@@ -14,6 +14,8 @@
 		this.email = email || null;
 		this.role = role || roles.patient;
 		this.profileImageUrl = null;
+		this.phone = null;
+		this.familyDoctor = null;
 
 		this.meta = function () {
 			return {
@@ -21,14 +23,21 @@
 				password: self.passwordHash,
 				name: self.name,
 				email: self.email,
-				role: self.role
+				role: self.role,
+				phone: self.phone,
+				familyDoctor: self.familyDoctor
 			};
+		};
+
+		this.set = function (property, value) {
+		    self[property] = value;
+		    return self;
 		};
 	}
 	User.fromDto = function (dto) {
 		var user = new User();
 		for (var property in dto) {
-			user[property] = dto[property];
+		    user.set(property, dto[property]);
 		}
 		return user;
 	};
