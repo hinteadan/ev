@@ -9,7 +9,7 @@
     "lodash": "~2.4.1",
     "h.dataStore": "https://github.com/hinteadan/h.dataStore.client.js.git",
     "AdminLTE": "https://github.com/almasaeed2010/AdminLTE.git",
-    "jasmine": "~2.0.1",
+    "jasmine": "2.0.3",
     "bootstrap": "~3.2.0",
     "angular": "~1.2.20",
     "ng-file-upload": "~1.6.5",
