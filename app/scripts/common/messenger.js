@@ -86,9 +86,12 @@
     				deferred.reject(result.reason);
     				return;
     			}
-    			deferred.resolve(_.map(result.data, function (entity) {
-    			    return entity.Data;
-    			}));
+    			deferred.resolve(
+                    _(result.data)
+                    .map(function (entity) { return entity.Data; })
+                    .sortBy('name')
+                    .value()
+                );
     		});
     		return deferred.promise;
     	};
