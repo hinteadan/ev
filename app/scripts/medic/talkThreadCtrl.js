@@ -1,41 +1,45 @@
 ﻿(function (angular) {
     'use strict';
 
-	var replyPrefix = 'RE: ';
+    var replyPrefix = 'RE: ';
 
     angular.module('eye-view-medic')
     .controller('threadCtrl', ['$scope', '$location', '$window', '$routeParams', 'messenger', 'jsParams', function ($s, $loc, $w, $rp, mess, params) {
 
-    	mess.threadsForUser($rp.pid).then(function (messageThreads) {
-    		
-    		$s.messageThreads = messageThreads;
+        mess.threadsForUser($rp.pid).then(function (messageThreads) {
+            $s.messageThreads = messageThreads;
         });
 
-    	function imageUrl(id) {
-    		return id ? mess.imageUrl(id) : '';
-    	}
+        mess.patientDetails($rp.pid).then(function (patient) {
+            $s.patient = patient;
+        });
+
+        function imageUrl(id) {
+            return id ? mess.imageUrl(id) : '';
+        }
 
         function imageCssUrl(id) {
             return id ? 'url(' + mess.imageUrl(id) + ')' : 'none';
         }
 
         function generateSubject(subject) {
-        	if (!subject) {
-        		return null;
-        	}
-        	if (subject.indexOf(replyPrefix) === 0) {
-        		return subject;
-        	}
-        	return replyPrefix + subject;
+            if (!subject) {
+                return null;
+            }
+            if (subject.indexOf(replyPrefix) === 0) {
+                return subject;
+            }
+            return replyPrefix + subject;
         }
 
         $s.messageThreads = [];
+        $s.patient = {};
         $s.cssUrl = imageCssUrl;
         $s.imgUrl = imageUrl;
         $s.respond = function (threadId) {
-        	params.set('subject', generateSubject($s.messageThreads[threadId][0].Data.subject));
-        	params.set('replyingTo', $s.messageThreads[threadId][0].Id);
-        	params.set('threadId', threadId);
+            params.set('subject', generateSubject($s.messageThreads[threadId][0].Data.subject));
+            params.set('replyingTo', $s.messageThreads[threadId][0].Id);
+            params.set('threadId', threadId);
 
             $loc.path('/respond/' + $rp.pid);
         };

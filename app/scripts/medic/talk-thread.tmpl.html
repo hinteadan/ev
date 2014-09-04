@@ -1,61 +1,70 @@
 ﻿<div>
-	<div class="row top-10">
-		<div class="col-md-12">
-			<button class="btn btn-lg center-block" ng-click="viewDiscussions()">Back to Discussions list</button>
-		</div>
-	</div>
+    <div class="row top-10">
+        <div class="col-md-12">
+            <button class="btn btn-lg center-block" ng-click="viewDiscussions()">Back to Discussions list</button>
+        </div>
+    </div>
 
+    <div class="row top-10" ng-show="patient">
+        <div class="col-md-5 col-md-offset-4">
+            <dl class="dl-horizontal">
+                <dt>Patient:</dt><dd>{{patient.name}}</dd>
+                <dt>Family Doctor:</dt><dd>{{patient.familyDoctor || 'Not Specified'}}</dd>
+                <dt>Phone:</dt><dd>{{patient.phone || 'Not Specified'}}</dd>
+            </dl>
+        </div>
+    </div>
 
-	<div class="row top-10"></div>
+    <div class="row top-10"></div>
 
-	<div class="row" ng-repeat="(threadId, messages) in messageThreads" ng-init="isExpanded = false">
+    <div class="row" ng-repeat="(threadId, messages) in messageThreads" ng-init="isExpanded = false">
 
-		<div class="col-md-12">
+        <div class="col-md-12">
 
-			<div class="box box-solid">
-				<div class="box-header">
-					<h3 class="box-title" ng-hide="isExpanded">
-						Inquiry about <strong>{{messages[messages.length-1].Data.subject}}</strong> <small>started on {{messages[messages.length-1].Data.sentOn}}</small>
-					</h3>
-					<div class="box-tools pull-right">
-						<button class="btn btn-primary btn-sm" ng-click="respond(threadId)">Respond</button>
-						<button data-widget="collapse" class="btn btn-default btn-sm" ng-click="isExpanded = !isExpanded">
-							<i class="fa" ng-class="{ 'fa-minus' : isExpanded, 'fa-plus' : !isExpanded }"></i>
-						</button>
-					</div>
-				</div>
-				<div class="box-body" ng-show="isExpanded">
-					<ul class="timeline">
-						<li ng-repeat="m in messages">
-							<i class="fa  {{m.Data.css()}}"></i>
-							<div class="timeline-item">
-								<span class="time">{{m.Data.sentOn}}</span>
+            <div class="box box-solid">
+                <div class="box-header">
+                    <h3 class="box-title" ng-hide="isExpanded">
+                        Inquiry about <strong>{{messages[messages.length-1].Data.subject}}</strong> <small>started on {{messages[messages.length-1].Data.sentOn}}</small>
+                    </h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-primary btn-sm" ng-click="respond(threadId)">Respond</button>
+                        <button data-widget="collapse" class="btn btn-default btn-sm" ng-click="isExpanded = !isExpanded">
+                            <i class="fa" ng-class="{ 'fa-minus' : isExpanded, 'fa-plus' : !isExpanded }"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body" ng-show="isExpanded">
+                    <ul class="timeline">
+                        <li ng-repeat="m in messages">
+                            <i class="fa  {{m.Data.css()}}"></i>
+                            <div class="timeline-item">
+                                <span class="time">{{m.Data.sentOn}}</span>
 
-								<h3 class="timeline-header"><a href="#">{{m.Data.writerName || m.Data.writerId}}</a> wrote...</h3>
+                                <h3 class="timeline-header"><a href="#">{{m.Data.writerName || m.Data.writerId}}</a> wrote...</h3>
 
-								<div class="timeline-body">
-									<h4>{{m.Data.subject}}</h4>
-									<p>{{m.Data.content}}</p>
-									<div ng-repeat="image in m.Data.images track by $index" imagelightbox>
-										<a rel="{{threadId}}" ng-href="{{imgUrl(image.id)}}" class="swipebox">
-											<img ng-src="{{imgUrl(image.id)}}" alt="image" class="margin image-thumb">
-										</a>
-										<!--<div ng-repeat="image in m.Data.images track by $index" ng-click="openImage(image)" class="margin image-thumb imagelightbox" ng-style="{'background-image': cssUrl(image.id)}"></div>-->
-									</div>
-									<questionnaire-view questionnaire="m.Data.questionnaire" ng-show="m.Data.questionnaire"></questionnaire-view>
-								</div>
+                                <div class="timeline-body">
+                                    <h4>{{m.Data.subject}}</h4>
+                                    <p>{{m.Data.content}}</p>
+                                    <div ng-repeat="image in m.Data.images track by $index" imagelightbox>
+                                        <a rel="{{threadId}}" ng-href="{{imgUrl(image.id)}}" class="swipebox">
+                                            <img ng-src="{{imgUrl(image.id)}}" alt="image" class="margin image-thumb">
+                                        </a>
+                                        <!--<div ng-repeat="image in m.Data.images track by $index" ng-click="openImage(image)" class="margin image-thumb imagelightbox" ng-style="{'background-image': cssUrl(image.id)}"></div>-->
+                                    </div>
+                                    <questionnaire-view questionnaire="m.Data.questionnaire" ng-show="m.Data.questionnaire"></questionnaire-view>
+                                </div>
 
-								<div class='timeline-footer'>
+                                <div class='timeline-footer'>
 
-								</div>
-							</div>
-						</li>
-						<li>
-							<i class="fa fa-clock-o"></i>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fa fa-clock-o"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

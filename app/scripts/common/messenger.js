@@ -5,7 +5,7 @@
 		medicRole = 'Medic';
 
 	angular.module('eye-view-common')
-    .service('messenger', ['$upload', '$q', 'dataStore', 'usersDataStore', 'notifier', 'NotifiyUser', 'Message', function ($upload, $q, ds, uds, notify, NotifiyUser, Message) {
+    .service('messenger', ['$upload', '$q', 'dataStore', 'usersDataStore', 'notifier', 'NotifiyUser', 'Message', 'User', function ($upload, $q, ds, uds, notify, NotifiyUser, Message, User) {
 
     	this.uploadImage = function (file, data) {
     		return $upload.upload({
@@ -75,6 +75,21 @@
     		});
 
     		return deferred.promise;
+    	};
+
+    	this.patientDetails = function (patientId) {
+    	    var deferred = $q.defer(),
+				query = hds.queryWithAnd().where('username')(is.EqualTo)(patientId);
+
+    	    uds.store.Query(query, function (result) {
+    	        /// <param name='result' type='hds.OperationResult' />
+    	        if (!result.isSuccess) {
+    	            deferred.reject(result.reason);
+    	            return;
+    	        }
+    	        deferred.resolve(User.fromDto(result.data[0].Data));
+    	    });
+    	    return deferred.promise;
     	};
 
     	this.patients = function () {
