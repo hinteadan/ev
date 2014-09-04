@@ -10,6 +10,8 @@
 /// <reference path="app/scripts/common/localStore.js" />
 /// <reference path="app/bower_components/jsSHA/src/sha.js" />
 /// <reference path="app/bower_components/notifyjs/dist/notify.js" />
+/// <reference path="app/bower_components/moment/moment.js" />
+
 
 /// <reference path="app/scripts/users/user.js" />
 /// <reference path="app/scripts/users/module.js" />

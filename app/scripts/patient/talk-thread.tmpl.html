@@ -14,7 +14,7 @@
 			<div class="box box-solid">
 				<div class="box-header">
 					<h3 class="box-title" ng-hide="isExpanded">
-						Inquiry about <strong>{{messages[messages.length-1].Data.subject}}</strong> <small>started on {{messages[messages.length-1].Data.sentOn}}</small>
+						Inquiry about <strong>{{messages[messages.length-1].Data.subject}}</strong> <small>started on {{messages[messages.length-1].Data.sentOnFormatted()}}</small>
 					</h3>
 					<div class="box-tools pull-right">
 						<button class="btn btn-primary btn-sm" ng-click="replyOn(threadId)">Reply</button>

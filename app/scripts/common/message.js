@@ -1,4 +1,4 @@
-﻿(function (angular) {
+﻿(function (angular, moment) {
 	'use strict';
 
 	var messageBg = {
@@ -12,7 +12,16 @@
 			'rootInquiry': 'fa-wheelchair',
 			'patientReply': 'fa-user',
 			'medicReply': 'fa-user-md'
-		};
+		},
+	    defaultDateFormat = 'D MMM YYYY, HH:mm';
+
+	function parseToMoment(input) {
+	    var mDate = moment(input);
+	    if (!mDate.isValid()) {
+	        mDate = moment(input, moment.ISO_8601);
+	    }
+	    return mDate;
+	}
 
 	function Message(inReplyTo, userId, subject, patientId, threadId) {
 		var self = this;
@@ -26,7 +35,13 @@
 		this.writerName = this.writerId;
 
 		this.createdOn = new Date().getTime();
+		this.createdOnFormatted = function () {
+		    return moment(self.createdOn).format(defaultDateFormat);
+		};
 		this.sentOn = null;
+		this.sentOnFormatted = function () {
+		    return self.sentOn ? moment(self.sentOn).format(defaultDateFormat) : null;
+		};
 
 		this.subject = subject || null;
 		this.content = null;
@@ -68,11 +83,11 @@
 		var message = new Message();
 		for (var property in dto) {
 			if (property === 'createdOn') {
-				message.createdOn = new Date(Number(dto.createdOn));
+			    message.createdOn = parseToMoment(dto.createdOn).toDate();
 				continue;
 			}
 			if (property === 'sentOn') {
-				message.sentOn = dto.sentOn ? new Date(Number(dto.sentOn)) : null;
+				message.sentOn = dto.sentOn ? parseToMoment(dto.sentOn).toDate() : null;
 				continue;
 			}
 			message[property] = dto[property];
@@ -82,4 +97,4 @@
 
 	angular.module('eye-view-common').value('Message', Message);
 
-}).call(this, this.angular);
+}).call(this, this.angular, this.moment);
