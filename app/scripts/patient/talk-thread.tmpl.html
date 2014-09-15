@@ -28,7 +28,7 @@
 						<li ng-repeat="m in messages">
 							<i class="fa  {{m.Data.css()}}"></i>
 							<div class="timeline-item">
-								<span class="time">{{m.Data.sentOn}}</span>
+								<span class="time">{{m.Data.sentOnFormatted()}}</span>
 
 								<h3 class="timeline-header"><a href="#">{{m.Data.writerName || m.Data.writerId}}</a> wrote...</h3>
 
