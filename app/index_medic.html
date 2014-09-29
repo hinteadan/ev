@@ -37,6 +37,10 @@
 						<a class="clickable" ng-click="setLanguage('en_US')" ng-show="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to English</a>
 					</li>
 
+                    <li ng-controller="termsCtrl">
+                        <a class="clickable" ng-click="viewTerms()">Terms and Conditions</a>
+                    </li>
+
 					<!-- User Account: style can be found in dropdown.less -->
 					<li class="dropdown user user-menu">
 						<a class="dropdown-toggle clickable" data-toggle="dropdown">
@@ -120,6 +124,7 @@
 	<script src="scripts/common/hasher.js"></script>
 	<script src="scripts/common/languageCtrl.js"></script>
 	<script src="scripts/common/imageLightboxDrtv.js"></script>
+    <script src="scripts/common/termsCtrl.js"></script>
 
 	<script src="scripts/registration/module.js"></script>
     <script src="scripts/registration/registerUserCtrl.js"></script>
