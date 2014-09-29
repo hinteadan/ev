@@ -14,6 +14,7 @@
 
 		$rp.when('/createUser', { templateUrl: 'scripts/users/createUser.tmpl.html', controller: 'createUser' });
 		$rp.when('/login', { templateUrl: 'scripts/users/login.tmpl.html', controller: 'login' });
+		$rp.when('/about', { templateUrl: 'scripts/common/about.tmpl.html', controller: 'about' });
 	}])
 	.service('uiRouter', ['$window', 'authenticator', function ($w, auth) {
 
@@ -34,13 +35,14 @@
 		}
 
 		function routeToLogin() {
-			$w.location.href = '#/login';
+			$w.location.href = '#/about';
 		}
 
 		this.route = function () {
 
 			if ($w.location.hash === '#/createUser' || 
 				$w.location.hash === '#/login' ||
+                $w.location.hash === '#/about' ||
 				$w.location.hash.indexOf('#/registration/confirm') >= 0) {
 				return;
 			}

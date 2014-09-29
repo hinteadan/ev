@@ -24,9 +24,6 @@
 			auth.logout();
 			$w.location.href = 'index.html';
 		};
-		$s.register = function () {
-		    $l.path('/register');
-		};
 	}]);
 
 }).call(this, this.angular);

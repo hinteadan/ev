@@ -54,10 +54,10 @@
 
             delete $s.cancel.confirm;
 
-            $l.path('/login');
+            $l.path('/about');
         };
         $s.goHome = function () {
-        	$l.path('/login');
+        	$l.path('/about');
         };
 
     }]);
