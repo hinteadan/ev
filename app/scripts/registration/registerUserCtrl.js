@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('eye-view-registration')
-    .controller('registerUser', ['$scope', '$location', '$timeout', 'User', 'registration', 'hasher', 'uiNotifier', 'notifier', function ($s, $l, $t, User, registration, hasher, uiNotifier, notify) {
+    .controller('registerUser', ['$scope', '$location', '$timeout', '$window', 'User', 'registration', 'hasher', 'uiNotifier', 'notifier', function ($s, $l, $t, $w, User, registration, hasher, uiNotifier, notify) {
 
         var userBeingRegistered = new User();
 
@@ -58,6 +58,9 @@
         };
         $s.goHome = function () {
         	$l.path('/about');
+        };
+        $s.viewTerms = function () {
+            $w.open('/tc.html', '_blank');
         };
 
     }]);

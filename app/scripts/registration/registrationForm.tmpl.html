@@ -20,6 +20,11 @@
 
                             <input type="text" placeholder="{{'family-doctor'|translate}}" ng-model="user.familyDoctor" class="form-control top-10" />
 
+                            <label>
+                                <input type="checkbox" ng-required="true" />
+                                I Accept the <a class="clickable" ng-click="viewTerms()">Terms and Conditions</a>.
+                            </label>
+
 							<button type="submit" class="btn btn-block btn-lg btn-primary top-10" ng-disabled="register.ing">
 								<span ng-hide="register.ing" translate="register-user"></span>
 								<span ng-show="register.ing"><i class="fa fa-cloud"></i> {{ 'registering' | translate }}, {{ 'wait' | translate }}</span>
