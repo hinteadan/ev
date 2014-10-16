@@ -1,7 +1,7 @@
 ﻿<div>
 	<div class="row">
 		<div class="col-md-12">
-			<button class="btn btn-primary btn-block btn-lg" ng-click="inquire()">Ask for advice</button>
+            <button class="btn btn-primary btn-block btn-lg" ng-click="inquire()" translate="ask-for-advice"></button>
 		</div>
 	</div>
 
@@ -14,10 +14,10 @@
 			<div class="box box-solid">
 				<div class="box-header">
 					<h3 class="box-title" ng-hide="isExpanded">
-						Inquiry about <strong>{{messages[messages.length-1].Data.subject}}</strong> <small>started on {{messages[messages.length-1].Data.sentOnFormatted()}}</small>
+                        {{'inquiry-about'|translate}} <strong>{{messages[messages.length-1].Data.subject}}</strong> <small>{{'started-on'|translate}} {{messages[messages.length-1].Data.sentOnFormatted()}}</small>
 					</h3>
 					<div class="box-tools pull-right">
-						<button class="btn btn-primary btn-sm" ng-click="replyOn(threadId)">Reply</button>
+                        <button class="btn btn-primary btn-sm" ng-click="replyOn(threadId)" translate="reply"></button>
 						<button data-widget="collapse" class="btn btn-default btn-sm" ng-click="isExpanded = !isExpanded">
 							<i class="fa" ng-class="{ 'fa-minus' : isExpanded, 'fa-plus' : !isExpanded }"></i>
 						</button>
@@ -30,7 +30,7 @@
 							<div class="timeline-item">
 								<span class="time">{{m.Data.sentOnFormatted()}}</span>
 
-								<h3 class="timeline-header"><a href="#">{{m.Data.writerName || m.Data.writerId}}</a> wrote...</h3>
+								<h3 class="timeline-header"><a href="#">{{m.Data.writerName || m.Data.writerId}}</a> {{'wrote'|translate}}</h3>
 
 								<div class="timeline-body">
 									<h4>{{m.Data.subject}}</h4>

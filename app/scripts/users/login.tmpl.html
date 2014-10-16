@@ -15,7 +15,7 @@
 							<input type="text" placeholder="{{ 'username' | translate }}" ng-model="username" class="form-control" ng-required="true" />
 							<input type="password" placeholder="{{ 'password' | translate }}" ng-model="password" class="form-control top-10" ng-required="true" />
 							<button type="submit" class="btn btn-block btn-lg btn-primary top-10" ng-disabled="submit.ting || submit.ted">
-								<span ng-hide="submit.ting || submit.ted" translate="login">Login</span>
+								<span ng-hide="submit.ting || submit.ted" translate="login"></span>
 								<span ng-show="submit.ting"><i class="fa fa-cloud"></i> {{ 'checking' | translate }}. {{ 'wait' | translate }}</span>
 								<span ng-show="submit.ted"><i class="fa fa-cog"></i> {{ 'authenticating' | translate }}. {{ 'wait' | translate }}</span>
 							</button>
