@@ -5,7 +5,12 @@
 				<div class="box-body">
 					<form role="form" name="registrationForm" ng-submit="register(registrationForm)" ng-hide="register.ed">
 						<fieldset>
-							<legend><i class="fa fa-users"></i>{{'register-new-user'|translate}}</legend>
+                            <div class="box-tools pull-right" ng-controller="languageCtrl">
+                                <div class="label bg-primary clickable" ng-click="setLanguage('ro_RO')" ng-hide="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to Romanian</div>
+                                <div class="label bg-primary clickable" ng-click="setLanguage('en_US')" ng-show="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to English</div>
+                            </div>
+
+							<legend class="pull-left"><i class="fa fa-users"></i>{{'register-new-user'|translate}}</legend>
 
 							<input type="text" placeholder="{{'full-name'|translate}}" ng-model="user.name" class="form-control" ng-required="true" />
 

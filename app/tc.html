@@ -20,14 +20,18 @@
     <!-- endbuild -->
 </head>
 
-<body>
+<body ng-app="eye-view">
 
-    <div class="brand large center-block"></div>    
+    <div class="brand large center-block"></div>
     <div class="container">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
                 <h1 class="text-center">Terms and Conditions - Accept</h1>
-                <p>I was informed on the identity and professional status of the supplier, the content of web application, on its purpose (provided services) and I fully understand this information.</p>
+                <div class="text-center" ng-controller="languageCtrl">
+                    <div class="label bg-primary clickable" ng-click="setLanguage('ro_RO')" ng-hide="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to Romanian</div>
+                    <div class="label bg-primary clickable" ng-click="setLanguage('en_US')" ng-show="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to English</div>
+                </div>
+                <p class="top-10">I was informed on the identity and professional status of the supplier, the content of web application, on its purpose (provided services) and I fully understand this information.</p>
                 <p>All submitted data are true and accurate.</p>
                 <p>I express my consent that the information I provide to be used by the supplier in order to express and transmit the opinion regarding the conduct that I must follow and / or regarding the therapy needed to be followed and complied with.</p>
                 <p>I agree that the information I will communicate to be used by the supplier including for conducting medical researches in the field.</p>
@@ -35,6 +39,50 @@
             </div>
         </div>
     </div>
+
+    <!-- build:js scripts/index.js -->
+    <script src="bower_components/jsSHA/src/sha.js"></script>
+    <script src="bower_components/h.dataStore/h.dataStore.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
+    <script src="bower_components/notifyjs/dist/notify.js"></script>
+    <script src="bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap.js"></script>
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/moment/locale/ro.js"></script>
+    <script src="bower_components/jsCookie/jsCookie-1.4.js"></script>
+
+    <script src="scripts/common/module.js"></script>
+    <script src="scripts/common/dataStore.js"></script>
+    <script src="scripts/common/messenger.js"></script>
+    <script src="scripts/common/notifier.js"></script>
+    <script src="scripts/common/message.js"></script>
+    <script src="scripts/common/image.js"></script>
+    <script src="scripts/common/uiNotifier.js"></script>
+    <script src="scripts/common/hasher.js"></script>
+    <script src="scripts/common/languageCtrl.js"></script>
+    <script src="scripts/common/aboutCtrl.js"></script>
+
+    <script src="scripts/registration/module.js"></script>
+    <script src="scripts/registration/registerUserCtrl.js"></script>
+    <script src="scripts/registration/validateRegistrationCtrl.js"></script>
+    <script src="scripts/registration/registration.js"></script>
+    <script src="scripts/registration/dataStore.js"></script>
+
+    <script src="scripts/users/module.js"></script>
+    <script src="scripts/users/user.js"></script>
+    <script src="scripts/users/createUserCtrl.js"></script>
+    <script src="scripts/users/loginCtrl.js"></script>
+    <script src="scripts/users/dataStore.js"></script>
+    <script src="scripts/users/authenticator.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <!-- endbuild -->
 
 </body>
 
