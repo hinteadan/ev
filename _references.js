@@ -3,6 +3,7 @@
 /// <reference path="app/bower_components/jquery.gracket/jquery.gracket.js" />
 /// <reference path="app/scripts/tournamentWizard.js" />
 /// <reference path="app/bower_components/angular/angular.js" />
+/// <reference path="app/bower_components/angular-cookies/angular-cookies.js" />
 /// <reference path="app/bower_components/h.dataStore/h.dataStore.js" />
 
 /// <reference path="app/bower_components/jasmine/lib/jasmine-core/jasmine.js" />
