@@ -16,7 +16,7 @@
 		$rp.when('/login', { templateUrl: 'scripts/users/login.tmpl.html', controller: 'login' });
 		$rp.when('/about', { templateUrl: 'scripts/common/about.tmpl.html', controller: 'about' });
 	}])
-	.service('uiRouter', ['$window', 'authenticator', function ($w, auth) {
+	.service('uiRouter', ['$window', '$timeout', 'authenticator', function ($w, $t, auth) {
 
 		function routeByRole(role) {
 			switch (role) {
@@ -35,7 +35,9 @@
 		}
 
 		function routeToLogin() {
-			$w.location.href = '#/about';
+		    $t(function () {
+		        $w.location.href = '#/about';
+		    });
 		}
 
 		this.route = function () {
