@@ -33,12 +33,12 @@
 				<ul class="nav navbar-nav">
 
 					<li ng-controller="languageCtrl">
-						<a class="clickable" ng-click="setLanguage('ro_RO')" ng-hide="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to Romanian</a>
-						<a class="clickable" ng-click="setLanguage('en_US')" ng-show="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to English</a>
+						<a class="clickable" ng-click="setLanguage('ro_RO')" ng-hide="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'" title="Switch to Romanian">RO</a>
+                        <a class="clickable" ng-click="setLanguage('en_US')" ng-show="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'" title="Switch to English">EN</a>
 					</li>
 
                     <li ng-controller="termsCtrl">
-                        <a class="clickable" ng-click="viewTerms()" translate="terms-and-conditions"></a>
+                        <a class="clickable" ng-click="viewTerms()" translate="terms-and-conditions-short" title="{{'terms-and-conditions'|translate}}"></a>
                     </li>
 
 					<!-- User Account: style can be found in dropdown.less -->
