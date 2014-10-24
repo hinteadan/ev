@@ -37,7 +37,7 @@
 		function routeToLogin() {
 		    $t(function () {
 		        $w.location.href = '#/about';
-		    });
+		    }, 250);
 		}
 
 		this.route = function () {
