@@ -1,11 +1,22 @@
-﻿(function (angular, hds, _) {
+﻿(function (angular, hds, _, moment) {
 	'use strict';
 
 	var is = hds.is,
-		medicRole = 'Medic';
+		medicRole = 'Medic',
+	    defaultDateFormat = 'D MMM YYYY, HH:mm';
+
+	function parseToMoment(input) {
+	    var mDate = moment(input);
+	    if (!mDate.isValid()) {
+	        mDate = moment(input, moment.ISO_8601);
+	    }
+	    return mDate;
+	}
 
 	angular.module('eye-view-common')
     .service('messenger', ['$upload', '$q', 'dataStore', 'usersDataStore', 'notifier', 'NotifiyUser', 'Message', 'User', function ($upload, $q, ds, uds, notify, NotifiyUser, Message, User) {
+
+        var self = this;
 
     	this.uploadImage = function (file, data) {
     		return $upload.upload({
@@ -101,16 +112,36 @@
     				deferred.reject(result.reason);
     				return;
     			}
-    			deferred.resolve(
-                    _(result.data)
-                    .map(function (entity) { return entity.Data; })
-                    .sortBy('name')
-                    .value()
-                );
+
+    			ds.store.QueryMeta(hds.queryWithAnd()).then(function (res) {
+    			    /// <param name='res' type='hds.OperationResult' />
+    			    if (!res.isSuccess) {
+    			        deferred.reject(res.reason);
+    			        return;
+    			    }
+
+    			    res.data = _(res.data).reverse().value();
+
+    			    deferred.resolve(
+                        _(result.data)
+                        .map(function (entity) {
+                            var m = _.find(res.data, function (m) {
+                                return m.Value.patientId === entity.Data.username;
+                            });
+                            return User.fromDto(entity.Data)
+                                .set('latestMessageOn', m ? m.Value.sentOn : null)
+                                .set('latestMessageOnFormatted', m ? parseToMoment(m.Value.sentOn).format(defaultDateFormat) : null);
+                        })
+                        .where(function (x) { return Boolean(x.latestMessageOn); })
+                        .sortBy('latestMessageOn')
+                        .reverse()
+                        .value()
+                    );
+    			});
     		});
     		return deferred.promise;
     	};
 
     }]);
 
-}).call(this, this.angular, this.H.DataStore, this._);
+}).call(this, this.angular, this.H.DataStore, this._, this.moment);

@@ -1,3 +1,9 @@
 ﻿<div>
-    <div class="callout callout-info clickable" ng-repeat="p in patients" ng-click="viewDiscussionWith(p)"><p>{{p.name}}</p></div>
+    <div class="callout callout-info clickable" ng-repeat="p in patients" ng-click="viewDiscussionWith(p)">
+        <p>
+            <strong>{{p.name}}</strong>
+            &nbsp;&nbsp;&nbsp;
+            <small>{{p.latestMessageOnFormatted}}</small>
+        </p>
+    </div>
 </div>
