@@ -351,6 +351,20 @@ module.exports = function (grunt) {
 			    files: [
                     { expand: true, flatten: true, src: ['<%= yeoman.dist %>\\scripts\\*.js'], dest: '<%= yeoman.dist %>\\scripts\\' }
 			    ]
+			},
+			prod: {
+			    options: {
+			        patterns: [
+                        {
+                            match: /["']httpStore.url["'],null/gi,
+                            replacement: '"httpStore.url","http://data.eyeview.ro/"',
+                            expression: true
+                        }
+			        ]
+			    },
+			    files: [
+                    { expand: true, flatten: true, src: ['<%= yeoman.dist %>\\scripts\\*.js'], dest: '<%= yeoman.dist %>\\scripts\\' }
+			    ]
 			}
 		},
 
