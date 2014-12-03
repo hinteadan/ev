@@ -263,7 +263,8 @@ module.exports = function (grunt) {
                       'images/{,*/}*.{webp}',
                       'fonts/{,*/}*',
 					  'languages/*.json',
-					  'web.config'
+					  'web.config',
+                      'EyeView.pdf'
 					]
 				}, {
 					expand: true,
