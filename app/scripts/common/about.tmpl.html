@@ -13,13 +13,16 @@
                     <div translate="about-eyeview-content">
 
                     </div>                    
-                    <div>
+                    <div class="text-center">
                         <button type="button" class="btn btn-lg btn-primary btn-block wrap top-10" ng-click="login()">
                             <span ng-hide="submit.ting || submit.ted" translate="login">Login</span>
                         </button>
                         <button type="button" class="btn btn-default btn-block wrap top-10" ng-click="register()">
                             {{ 'register' | translate}}
                         </button>
+                        <a href="EyeView.pdf" target="_blank">
+                            {{ 'users-manual' | translate}}
+                        </a>
                     </div>
                 </div>
             </div>
