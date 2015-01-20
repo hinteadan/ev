@@ -1,4 +1,4 @@
-﻿(function (angular, hds, _, moment) {
+(function (angular, hds, _, moment) {
 	'use strict';
 
 	var is = hds.is,
@@ -113,7 +113,7 @@
     				return;
     			}
 
-    			ds.store.QueryMeta(hds.queryWithAnd()).then(function (res) {
+    			ds.store.QueryMeta(hds.queryWithNone()).then(function (res) {
     			    /// <param name='res' type='hds.OperationResult' />
     			    if (!res.isSuccess) {
     			        deferred.reject(res.reason);
