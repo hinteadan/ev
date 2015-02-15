@@ -15,14 +15,50 @@
     <link href="bower_components/AdminLTE/css/font-awesome.css" rel="stylesheet" />
     <link href="bower_components/AdminLTE/css/ionicons.css" rel="stylesheet" />
     <link href="bower_components/AdminLTE/css/AdminLTE.css" rel="stylesheet" />
-
+    <!-- added font awesome -->
+    <link href="styles/font-awesome/css/font-awesome.min.css" rel="stylesheet" />    
+    <!-- added google font -->
+	<link href='http://fonts.googleapis.com/css?family=Mr+Dafoe' rel='stylesheet' type='text/css'>
+    
     <link href="styles/main.css" rel="stylesheet" />
     <!-- endbuild -->
 </head>
 
 <body ng-app="eye-view" ng-controller="uiRouter">
 
-	<div class="brand large center-block"></div>
+	<div class="container">
+    	<div class="row">
+        	<div class="col-sm-3">
+            	
+               <p class="text-center"><img id="logo" src="images/Logo_with_text_small.png" alt="logo"></p>
+                
+            </div><!-- end .col-sm-3 -->
+            <div class="col-sm-6">
+               
+               <p class="header-recomand" translate="recomand"></p>
+                
+            </div><!-- end .col-sm-6 -->
+            <div class="col-sm-3">
+            	
+               <div class="social-media">
+               
+               		<p>
+                        <a href="#" title="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" title="linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="EyeView.pdf" target="blank_" title="manual utilizator"><i class="fa fa-book"></i></a>
+                    </p>
+                    
+                     <div class="box-tools" ng-controller="languageCtrl">
+                        <div class="label bg-primary clickable" ng-click="setLanguage('ro_RO')" ng-hide="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to Romanian</div>
+                        <div class="label bg-primary clickable" ng-click="setLanguage('en_US')" ng-show="currentLanguage() == 'ro_RO' || currentLanguage() == 'ro'">Switch to English</div>
+                    </div>
+               
+               </div><!-- end .social-media -->
+                
+            </div><!-- end .col-sm-9 -->        
+        </div><!-- end .row -->    	
+    </div><!-- end .container -->
+    
 	<div ng-view></div>
 
     <!-- build:js scripts/index.js -->
