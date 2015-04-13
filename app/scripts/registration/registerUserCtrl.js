@@ -57,7 +57,7 @@
             $l.path('/about');
         };
         $s.goHome = function () {
-        	$l.path('/about');
+        	$l.path('/login');
         };
         $s.viewTerms = function () {
             $w.open('/tc.html', '_blank');
