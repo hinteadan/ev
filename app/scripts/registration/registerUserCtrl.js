@@ -33,13 +33,23 @@
         	userBeingRegistered.passwordHash = hasher.hash($s.pass);
 
         	$s.register.ing = true;
-        	registration.queueForConfirmation(userBeingRegistered).then(function (confirmationUrl) {
-        		notify.userRegistration(userBeingRegistered, confirmationUrl);
-        		delete $s.register.ing;
-        		$s.register.ed = true;
-        	}, function (reason) {
-        		uiNotifier.error(reason);
-        		delete $s.register.ing;
+
+        	registration.countPatients().then(function (cnt) {
+        	    if(cnt >= 200) {
+        	        uiNotifier.error("Maximum number of free accounts (200) has been reached!");
+        	        delete $s.register.ing;
+        	        return false;
+        	    }
+
+        	    registration.queueForConfirmation(userBeingRegistered).then(function (confirmationUrl) {
+        	        notify.userRegistration(userBeingRegistered, confirmationUrl);
+        	        delete $s.register.ing;
+        	        $s.register.ed = true;
+        	    }, function (reason) {
+        	        uiNotifier.error(reason);
+        	        delete $s.register.ing;
+        	    });
+
         	});
         };
 
@@ -62,6 +72,11 @@
         $s.viewTerms = function () {
             $w.open('/tc.html', '_blank');
         };
+
+        $s.patientsCount = null;
+        registration.countPatients().then(function (cnt) {
+            $s.patientsCount = 200 - cnt;
+        });
 
     }]);
 

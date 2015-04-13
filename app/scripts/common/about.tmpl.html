@@ -14,7 +14,7 @@
                             <div class="register" ng-controller="registerUser">
                                 <div class="row">
                                     <div class="col-xs-7"><p class="register-header-first" translate="free-registration"></p></div>
-                                    <div class="col-xs-5"><p class="text-center register-header-last"><span>200</span><br /><span translate="free-registration-number"></span></p></div>
+                                    <div class="col-xs-5"><p class="text-center register-header-last"><span>{{patientsCount || '...'}}</span><br /><span translate="free-registration-number"></span></p></div>
                                 </div><!-- end .row -->
 
                                 <form role="form" name="registrationForm" ng-submit="register(registrationForm)" ng-hide="register.ed">
