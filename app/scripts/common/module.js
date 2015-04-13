@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    angular.module('eye-view-common', ['angularFileUpload', 'eye-view-users', 'pascalprecht.translate', 'ngCookies'])
+    angular.module('eye-view-common', ['angularFileUpload', 'eye-view-users', 'eye-view-registration', 'pascalprecht.translate', 'ngCookies'])
 	.config(['$routeProvider', '$translateProvider', function ($rp, $tp) {
 
 	    $tp.determinePreferredLanguage();
