@@ -126,6 +126,10 @@ html[xmlns] .clearfix {
 	border-bottom:1px solid #ddd;
 }
 
+img{
+	width:100%;
+}
+
 
 .visible-phone { display: none !important; }
 .visible-tablet { display: none !important; }
@@ -189,6 +193,10 @@ html[xmlns] .clearfix {
 	color:#367fa9;
 }
 
+.dr-img{
+	width:150px;
+}
+
 
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -223,6 +231,7 @@ html[xmlns] .clearfix {
 
 /*=========================== end header ========================*/
 /*===========================  content ==========================*/
+
 
 .box-header h1{
 	background-color:#367fa9;	

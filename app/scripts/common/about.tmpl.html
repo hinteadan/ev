@@ -7,18 +7,13 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8">
-                            <p><img src="../../images/main-image.png" alt="main-image" /></p>
-                        </div><!-- end .col-md-8 -->
                         <div class="col-md-4">
                             <div class="register" ng-controller="registerUser">
                                 <div class="row">
                                     <div class="col-xs-7"><p class="register-header-first" translate="free-registration"></p></div>
                                     <div class="col-xs-5"><p class="text-center register-header-last"><span>{{patientsCount || '...'}}</span><br /><span translate="free-registration-number"></span></p></div>
                                 </div><!-- end .row -->
-
                                 <form role="form" name="registrationForm" ng-submit="register(registrationForm)" ng-hide="register.ed">
-
                                     <input type="text" placeholder="{{'full-name'|translate}}" ng-model="user.name" ng-required="true" />
                                     <input type="text" placeholder="{{'user-name'|translate}}" ng-model="user.username" ng-required="true" />
                                     <input type="password" placeholder="{{'first-password'|translate}}" ng-model="pass" ng-required="true" />
@@ -30,7 +25,6 @@
                                         <input type="checkbox" ng-required="true" />
                                         <a class="clickable" ng-click="viewTerms()" translate="terms-conditions"></a>
                                     </label>
-
                                     <button class="button" type="submit" ng-disabled="register.ing">
                                         <span ng-hide="register.ing" translate="register"></span>
                                         <span ng-show="register.ing"><i class="fa fa-cloud"></i> {{ 'registering' | translate }}, {{ 'wait' | translate }}</span>
@@ -49,6 +43,9 @@
                                 </div>
                             </div><!-- end .register -->
                         </div><!-- end .col-md-4 -->
+                        <div class="col-md-8">
+                            <p><img src="../../images/main-image.png" alt="main-image" /></p>
+                        </div><!-- end .col-md-8 -->
                     </div><!-- end .row -->
                 </div><!-- end .container -->
 
@@ -208,18 +205,27 @@
                         <div class="row">
 
                             <div class="col-xs-12">
-
+                                <p class="text-center"><img class="dr-img" src="../../images/meda.png" alt="Doctor Meda"></p>
                                 <h3 class="text-center">Dr. Meda Neagoe<br><small translate="recomand-footer"></small></h3>
                                 <br><br>
                                 <div class="row">
 
-                                    <div class="col-md-5">
-                                        <ul translate="facts"></ul>
-                                    </div><!-- end .col-md-5 -->
-                                    <div class="col-md-7">
-                                        <h5 translate="medical-projects" style="margin-top:0;"></h5>
-                                        <ul translate="medical-project-details"></ul>
-                                    </div><!-- end .col-md-7 -->
+                                    <div class="col-md-12">
+                                        <p translate="facts"></p>
+                                    </div><!-- end .col-md-12-->
+
+                                    <div class="col-md-6">
+                                        <h4 translate="medical-projects-title"></h4>
+                                        <h4 translate="medical-projects-sub"></h4>
+                                        <h5 translate="medical-projects-period"></h5>
+                                        <p translate="medical-project-details"></p>
+                                    </div><!-- end .col-md-6 -->
+                                    <div class="col-md-6">
+                                        <h4 translate="medical-projects-title2"></h4>
+                                        <h4 translate="medical-projects-sub2"></h4>
+                                        <h5 translate="medical-projects-period2"></h5>
+                                        <p translate="medical-project-details2"></p>
+                                    </div><!-- end .col-md-6 -->
 
                                 </div><!-- end .row -->
 
