@@ -6,10 +6,7 @@
                     <h1 class="text-center" translate="about-eyeview"></h1>                    
                 </div>
                 <div class="container">
-                	<div class="row">
-                    	<div class="col-md-8">
-                        	<p><img src="../../images/main-image.png" alt="main-image" /></p>
-                        </div><!-- end .col-md-8 -->
+                	<div class="row">                    	
                         <div class="col-md-4">
                         	<div class="register">
                             	<div class="row">
@@ -25,12 +22,15 @@
                                 <input type="text" placeholder="{{'GP'|translate}}"/>
                                 
                                 <input type="checkbox" /><label translate="terms-conditions"><!-- anchorul se afla in ro-RO.json si en_US.json trebuie adaugat TO DO --></label>
-                                <a href="#" class="button"><button translate="register"></button></a>
+                                <a id="register-yeah" href="#" class="button"><button translate="register"></button></a>
                                 <p class="text-center"><a href="#" title="I have account" translate="ihaveaccount"></a></p>
                                 <p class="atention" translate="atention-register"></p>
                                 
                             </div><!-- end .register -->
                         </div><!-- end .col-md-4 -->
+						<div class="col-md-8">							
+                        	<p><img src="../../images/main-image.png" alt="main-image" /></p>
+                        </div><!-- end .col-md-8 -->
                     </div><!-- end .row -->
                  </div><!-- end .container -->
                  
@@ -190,18 +190,27 @@
                         <div class="row">
                         
                         	<div class="col-xs-12">
-                            	
+                            	<p class="text-center"><img class="dr-img" src="../../images/meda.png" alt="Doctor Meda"></p>
                                 <h3 class="text-center">Dr. Meda Neagoe<br><small translate="recomand-footer"></small></h3>
                                 <br><br>
                                 	<div class="row">
                                     
-                                    	<div class="col-md-5">
-                                        	 <ul translate="facts"></ul>
-                                        </div><!-- end .col-md-5 -->
-                                        <div class="col-md-7">
-                                        	<h5 translate="medical-projects" style="margin-top:0;"></h5>
-                                            <ul translate="medical-project-details"></ul>
-                                        </div><!-- end .col-md-7 -->
+                                    	<div class="col-md-12">
+                                        	 <p translate="facts"></p>
+                                        </div><!-- end .col-md-12-->
+										
+                                        <div class="col-md-6">
+                                        	<h4 translate="medical-projects-title"></h4>
+											<h4 translate="medical-projects-sub"></h4>
+											<h5 translate="medical-projects-period"></h5>
+                                            <p translate="medical-project-details"></p>
+                                        </div><!-- end .col-md-6 -->
+										<div class="col-md-6">
+                                        	<h4 translate="medical-projects-title2"></h4>
+											<h4 translate="medical-projects-sub2"></h4>
+											<h5 translate="medical-projects-period2"></h5>
+                                            <p translate="medical-project-details2"></p>
+                                        </div><!-- end .col-md-6 -->
                                     
                                     </div><!-- end .row -->
                                 
