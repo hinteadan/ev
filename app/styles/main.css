@@ -197,6 +197,25 @@ img{
 	width:150px;
 }
 
+.account{
+	margin-top:15px;
+	padding:10px;
+	border:1px solid #85c226;
+	color:#598219;
+	display:block;
+	-webkit-transition: color 0.3s linear;
+	-moz-transition: color 0.3s linear;
+	-ms-transition: color 0.3s linear;
+	-o-transition: color 0.3s linear;
+	transition: color 0.3s linear;
+}
+
+.account:hover{
+	background-color: #85c226;
+	color:#fff;
+}
+
+
 
 
 @media (min-width: 768px) and (max-width: 979px) {
