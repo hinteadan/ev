@@ -107,7 +107,15 @@
 						{
 							'name': 'CONFIRMATIONURL',
 							'content': confirmationUrl
-						}
+						},
+                        {
+                            'name': 'USERNAME',
+                            'content': user.username
+                        },
+                        {
+                            'name': 'PASSWORD',
+                            'content': '[Hidden for your own security - use the \'forgot password\' functionality if you can\'t remember it]'
+                        }
 					],
 					'merge_vars': [
 						//{

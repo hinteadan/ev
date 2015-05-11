@@ -155,6 +155,22 @@
     		return topDeff.promise;
     	};
 
+    	this.countPatients = function () {
+    	    var deff = $q.defer(),
+    			query = hds.queryWithAnd().where('role')(is.EqualTo)('Patient');
+
+    	    uds.store.Query(query).then(function (result) {
+    	        /// <param name='result' type='H.DataStore.OperationResult' />
+    	        if (!result.isSuccess) {
+    	            deff.reject(result.reason);
+    	            return;
+    	        }
+    	        deff.resolve(result.data.length);
+    	    });
+
+    	    return deff.promise;
+    	};
+
     }]);
 
 }).call(this, this.angular, this.H.DataStore, this._);

@@ -321,6 +321,7 @@ img{
 	padding:10px;
 	font-size:22px;
 	background-color:#85C226;
+    color:#fff;
 	-webkit-transition: background 0.3s linear;
 -moz-transition: background 0.3s linear;
 -ms-transition: background 0.3s linear;
@@ -328,11 +329,13 @@ img{
 transition: background 0.3s linear;
 	
 }
-.register a.button{
+.register .button{
 	color:#fff;
 }
 
-.register a.button:hover button{
+.register .button:hover button,
+.register .button:hover
+{
 	background-color:#367fa9;
 }
 

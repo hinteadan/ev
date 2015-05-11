@@ -8,24 +8,40 @@
                 <div class="container">
                 	<div class="row">                    	
                         <div class="col-md-4">
-                        	<div class="register">
-                            	<div class="row">
-                                	<div class="col-xs-7"><p class="register-header-first" translate="free-registration"></p></div>
-                                	<div class="col-xs-5"><p class="text-center register-header-last"><span>200</span><br /><span translate="free-registration-number"></span></p></div>
+
+                            <div class="register" ng-controller="registerUser">
+                                <div class="row">
+                                    <div class="col-xs-7"><p class="register-header-first" translate="free-registration"></p></div>
+                                    <div class="col-xs-5"><p class="text-center register-header-last"><span>{{patientsCount || '...'}}</span><br /><span translate="free-registration-number"></span></p></div>
                                 </div><!-- end .row -->
-                                <input type="text" placeholder="{{'full-name'|translate}}"/>
-                                <input type="text" placeholder="{{'user-name'|translate}}"/>
-                                <input type="password" placeholder="{{'first-password'|translate}}"/>
-                                <input type="password" placeholder="{{'secound-password'|translate}}"/>
-                                <input type="email" placeholder="{{'email'|translate}}"/>
-                                <input type="text" placeholder="{{'phone'|translate}}"/>
-                                <input type="text" placeholder="{{'GP'|translate}}"/>
-                                
-                                <input type="checkbox" /><label translate="terms-conditions"><!-- anchorul se afla in ro-RO.json si en_US.json trebuie adaugat TO DO --></label>
-                                <a id="register-yeah" href="#" class="button"><button translate="register"></button></a>
-                                <p class="text-center"><a href="#" class="account" title="I have account" translate="ihaveaccount"></a></p>
-                                <p class="atention" translate="atention-register"></p>
-                                
+                                <form role="form" name="registrationForm" ng-submit="register(registrationForm)" ng-hide="register.ed">
+                                    <input type="text" placeholder="{{'full-name'|translate}}" ng-model="user.name" ng-required="true" />
+                                    <input type="text" placeholder="{{'user-name'|translate}}" ng-model="user.username" ng-required="true" />
+                                    <input type="password" placeholder="{{'first-password'|translate}}" ng-model="pass" ng-required="true" />
+                                    <input type="password" placeholder="{{'secound-password'|translate}}" ng-model="passConfirm" ng-required="true" />
+                                    <input type="email" placeholder="{{'email'|translate}}" ng-model="user.email" ng-required="true" />
+                                    <input type="text" placeholder="{{'phone'|translate}}" ng-model="user.phone" />
+                                    <input type="text" placeholder="{{'GP'|translate}}" ng-model="user.familyDoctor" />
+                                    <label>
+                                        <input type="checkbox" ng-required="true" />
+                                        <a class="clickable" ng-click="viewTerms()" translate="terms-conditions"></a>
+                                    </label>
+                                    <button id="register-yeah" class="button account" type="submit" ng-disabled="register.ing">
+                                        <span ng-hide="register.ing" translate="register"></span>
+                                        <span ng-show="register.ing"><i class="fa fa-cloud"></i> {{ 'registering' | translate }}, {{ 'wait' | translate }}</span>
+                                    </button>
+                                    <p class="text-center"><a class="account" href="#/login" title="I have account" translate="ihaveaccount"></a></p>
+                                    <p class="atention" translate="atention-register"></p>
+                                </form>
+                                <div ng-show="register.ed">
+                                    <div class="alert alert-success alert-dismissable top-10">
+                                        <i class="fa fa-check"></i>
+                                        <h4><b translate="almost-done"></b></h4>
+                                        <p class="top-10" translate="confirmation-mail-sent"></p>
+                                        <p translate="check-validation-email"></p>
+                                    </div>
+                                    <button class="button" ng-click="goHome()"><i class="fa fa-2x fa-home"></i></button>
+                                </div>
                             </div><!-- end .register -->
                         </div><!-- end .col-md-4 -->
 						<div class="col-md-8">							
