@@ -36,7 +36,7 @@
 
         	registration.countPatients().then(function (cnt) {
         	    if(cnt >= 200) {
-        	        uiNotifier.error("Maximum number of free accounts (200) has been reached!");
+        	        uiNotifier.error('Maximum number of free accounts (200) has been reached!');
         	        delete $s.register.ing;
         	        return false;
         	    }
