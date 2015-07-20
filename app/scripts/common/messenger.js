@@ -16,8 +16,6 @@
 	angular.module('eye-view-common')
     .service('messenger', ['$upload', '$q', 'dataStore', 'usersDataStore', 'notifier', 'NotifiyUser', 'Message', 'User', function ($upload, $q, ds, uds, notify, NotifiyUser, Message, User) {
 
-        var self = this;
-
     	this.uploadImage = function (file, data) {
     		return $upload.upload({
     			url: ds.blob.UploadUrl(),

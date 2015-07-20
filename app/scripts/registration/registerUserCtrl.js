@@ -4,7 +4,8 @@
     angular.module('eye-view-registration')
     .controller('registerUser', ['$scope', '$location', '$timeout', '$window', 'User', 'registration', 'hasher', 'uiNotifier', 'notifier', function ($s, $l, $t, $w, User, registration, hasher, uiNotifier, notify) {
 
-        var userBeingRegistered = new User();
+        var userBeingRegistered = new User(),
+            numberOfFreeUsers = 215;
 
         function validateForm(form) {
         	if (!form.$valid) {
@@ -35,8 +36,8 @@
         	$s.register.ing = true;
 
         	registration.countPatients().then(function (cnt) {
-        	    if(cnt >= 200) {
-        	        uiNotifier.error("Maximum number of free accounts (200) has been reached!");
+        	    if(cnt >= numberOfFreeUsers) {
+        	        uiNotifier.error('Maximum number of free accounts (200) has been reached!');
         	        delete $s.register.ing;
         	        return false;
         	    }
@@ -75,7 +76,7 @@
 
         $s.patientsCount = null;
         registration.countPatients().then(function (cnt) {
-            $s.patientsCount = 200 - cnt;
+            $s.patientsCount = numberOfFreeUsers - cnt;
         });
 
     }]);
